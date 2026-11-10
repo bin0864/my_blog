@@ -63,11 +63,8 @@ nav ul {
 .hero {
     height: 52rem;
     background-color: black ;
-}
-
-.hero-txt{
     color: white;
-} 
+}
 
 .hero .inner {
     display: flex;
@@ -75,50 +72,171 @@ nav ul {
 
 }
 
+.title{
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.hero-txt p{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #922E2B;
+    color: #FFF8E7;
+    padding: 1rem 4rem;
+    border-radius: 3rem;
+    margin-top: 7.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
 .profile {
     display: flex;
-    align-content: center;
-    text-align: center;
-    justify-content: space-between;
-    padding: 4rem;
-    border-radius: 1.6rem;
-    margin-top: -8rem;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 2.4rem;
+    border-radius: 1.4rem;
+    margin-top: -6rem;
+    margin-bottom: 4.5rem;
     background-color: #922E2B;
-    color: white;
-    margin-bottom: 6rem;
-    font-size: 15px;
+    color: #FFF8E7;
+    position: relative;
+    z-index: 2;
+    padding: 30px;
 }
 
-.avatar{
+.avatar {
     background-color: black;
+    font-size: 40px;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
     align-content: center;
-    font-size: 30px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50px;
 }
 
-.tags{
+.intro {
+    flex: 1;
+}
+
+.intro h3 {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.intro p {
+    font-size: 1.2rem;
+}
+
+.tags {
     display: flex;
-    gap: 30px;
+    gap: 0.8rem;
 }
 
-.tags li{
+.tags li {
+    background-color: #000000;
+    color: #FFF8E7;
+    padding: 0.6rem 1rem;
+    border-radius: 2rem;
+    font-size: 1rem;
     font-weight: bold;
-    align-content: center;
+}
+
+.thumb {
+    background-color: #333333;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    position: relative;
+    padding:1.2rem;
+    margin: 10px 30px 10px 10px;
+}
+.thumb .bg{
+    width: 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: absolute;
+    top:0;
+    z-index: 0;
+    left: 0;
+    transition: all .3s;
+    transform: scale(1);
+}
+.thumb .date {
+    position: relative;
+    z-index: 1;
+
+}
+.post:nth-of-type(1) .thumb .bg{
+    background-image: url(../img/post-img-1.png);
+}
+.post:nth-of-type(2) .thumb .bg{
+    background-image: url(../img/post-img-2.png);
+}
+.post:nth-of-type(3) .thumb .bg{
+    background-image: url(../img/post-img-3.png);
+}
+
+.post:hover .thumb .bg{
+    transform: scale(1.05);
 }
 
 .post {
-    padding: 4rem;
-    background-color: #fff;
+    padding: 2rem;
+    background-color: #FFFCF7;
     border-radius: 1.6rem;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .post:nth-last-of-type(2) {
     flex-direction: row-reverse;
     margin:2.4rem 0 ;
+}
+
+.info h3{
+    font-size: 30px;
+    color: black;
+    margin: 5px 0;
+}
+
+section>h2{
+    color: black;
+    font-size: 30px;
+    margin: 30px;
+}
+
+.cate, .track{
+    color: #922E2B;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.list{
+    font-size: 18px;
+    color: #685954;
+}
+
+.more{
+    background-color: #922E2B;
+    color: white;
+    font-size: 15px;
+    padding: 10px 40px;
+    border-radius: 8px;
+    position: absolute;
+    right: 40px;
+    bottom: 70px;
 }
 
 #photos {
@@ -129,7 +247,7 @@ nav ul {
 .photos {
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-template-rows: 10rem 10rem ;
+    grid-template-rows: 20rem 20rem ;
     gap: 1rem;
     grid-template-areas: "p1 p1 p2 p3" "p4 p5 p5 p3 "
     ;
@@ -150,16 +268,30 @@ nav ul {
     grid-area: p5;
 }
 
-.photos li{
-    background-color: #333333;
-    border-radius: 1.2rem;
+.photos li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.3rem;
+    background-color: black;
+    color: #FFF8E7;
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
-.more{
-    background-color: #922E2B;
-    color: #FFF8E7;
-    padding: 10px 30px;
-    border-radius: 8px;
+.photos li p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.photos li h2 {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+}
+
+.photos li p:last-child {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
 }
 
 footer {
