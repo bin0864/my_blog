@@ -42,7 +42,6 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    /* background-color: #F5F3FF; */
     z-index: 3;
     color: #F5F3FF;
     padding: 2.4rem 0;
@@ -60,9 +59,6 @@ nav ul {
     gap: 2.8rem;
 }
 
-
-/* HERO */
-
 .hero {
     height: 52rem;
     background-color: #000000;
@@ -71,15 +67,13 @@ nav ul {
     overflow: hidden;
 }
 
-/* RECORD IMAGE */
-
 .hero::before {
     content: "";
     position: absolute;
-    width: 72rem;
-    height: 72rem;
-    right: -15rem;
-    top: -10rem;
+    width: 100rem;
+    height: 100rem;
+    right: -32rem;
+    top: -20rem;
     background-image: url("../img/1.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -87,21 +81,24 @@ nav ul {
     z-index: 1;
 }
 
-/* TONEARM IMAGE */
 
 .hero::after {
     content: "";
     position: absolute;
-    width: 42rem;
-    height: 42rem;
-    right: 39rem;
-    top: 4rem;
+    width: 40rem;
+    height: 40rem;
+    right: 43rem;
+    top: 2rem;
     background-image: url("../img/2.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
+    transform: rotate(-3deg);
+    transform-origin: 23% 25%;
     z-index: 2;
+    pointer-events: none;
 }
+
 
 .hero .inner {
     display: flex;
@@ -141,7 +138,6 @@ nav ul {
 
 .hero-desc {
     font-size: 1.5rem;
-    margin-top: .8rem;
 }
 
 .btn {
@@ -152,7 +148,7 @@ nav ul {
     color: #FFF8E7;
     padding: 1.2rem 3rem;
     border-radius: 3rem;
-    margin-top: 3rem;
+    margin: 30px 0;
     font-size: 1.4rem;
     font-weight: bold;
     transition: .3s;
@@ -185,6 +181,7 @@ nav ul {
     margin-top: 1.5rem;
 }
 
+/*
 .hero-speed {
     position: absolute;
     left: 52%;
@@ -202,7 +199,7 @@ nav ul {
     font-size: 1rem;
     letter-spacing: .05rem;
 }
-
+*/
 
 .btn {
     display: inline-flex;
@@ -212,7 +209,7 @@ nav ul {
     color: #FFF8E7;
     padding: 1rem 4rem;
     border-radius: 3rem;
-    margin-top: 7.5rem;
+    margin-top: 7rem;
     font-size: 2rem;
     font-weight: bold;
     transition: 0.3s;
@@ -228,7 +225,7 @@ nav ul {
     gap: 2rem;
     padding: 2rem 2.4rem;
     border-radius: 1.4rem;
-    margin-top: -6rem;
+    margin-top: -3.2rem;
     margin-bottom: 4.5rem;
     background-color: #922E2B;
     color: #FFF8E7;
