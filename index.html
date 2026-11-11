@@ -1,67 +1,92 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>todayplaylist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;700&display=swap"
-        rel="stylesheet">
+    <title>33⅓ | TODAY PLAYLIST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <header id="top">
         <div class="inner">
-
-            <h1 class="logo">
-                33⅓
-            </h1>
+            <h1 class="logo">33⅓</h1>
             <nav>
                 <ul>
-                    <li><a href="#">오늘의 선곡</a></li>
-                    <li><a href="#">Playlist 모음</a></li>
-                    <li><a href="#">선곡 노트 </a></li>
+                    <li><a href="#posts">오늘의 선곡</a></li>
+                    <li><a href="#photos">무드별 Playlist</a></li>
+                    <li><a href="#profile">선곡 노트</a></li>
                 </ul>
             </nav>
         </div>
-
     </header>
-    
-<section class="hero">
-    <div class="inner">
 
-        <div class="hero-txt">
+    <section class="hero" data-scene="1">
 
-            <p class="side">SIDE A / PERSONAL MUSIC ARCHIVE</p>
-
-            <p class="sub">CURATED MIX / VOL. 001</p>
-
-            <h1 class="title">TODAY PLAYLIST</h1>
-
-            <p class="hero-desc">
-                오늘은 이런 음악 어떤가요?
-            </p>
-
-            <a href="#posts" class="btn">오늘의 선곡 보기</a>
-
-            <div class="hero-meter">
-                <span class="hero-meter-bar"></span>
+        <!-- 1세트: 검은 배경 + 1.png -->
+        <div class="hero-scene scene-1 is-active" aria-hidden="true">
+            <div class="record">
+                <img src="./img/1.png" alt="">
             </div>
-
-            <p class="hero-vol">VOL. 001 · 2026 / SEOUL</p>
-
         </div>
 
-        <!-- <p class="hero-speed">33⅓ RPM &nbsp; STEREO</p>
+        <!-- 2세트: background_2.mp4 + 1-2.png -->
+        <div class="hero-scene scene-2" aria-hidden="true">
+            <video class="background-video" muted playsinline loop preload="metadata">
+                <source src="./video/background_2.mp4" type="video/mp4">
+            </video>
+            <div class="record">
+                <img src="./img/1-2.png" alt="">
+            </div>
+        </div>
 
-        <p class="hero-caption">PLAY / PAUSE YOUR DAY</p> -->
+        <!-- 3세트: background_3.mp4 + 1-3.png -->
+        <div class="hero-scene scene-3" aria-hidden="true">
+            <video class="background-video" muted playsinline loop preload="metadata">
+                <source src="./video/background_3.mp4" type="video/mp4">
+            </video>
+            <div class="record">
+                <img src="./img/1-3.png" alt="">
+            </div>
+        </div>
 
-    </div>
-</section>
+        <!-- 공통 폰암 -->
+        <div class="tonearm" aria-hidden="true"></div>
+
+        <div class="inner">
+            <div class="hero-txt">
+                <p class="side">SIDE A / PERSONAL MUSIC ARCHIVE</p>
+                <p class="sub">CURATED MIX / VOL. 001</p>
+                <h2 class="title">TODAY PLAYLIST</h2>
+                <p class="hero-desc">오늘은 이런 음악 어떤가요?</p>
+
+                <a href="#posts" class="btn">오늘의 선곡 보기</a>
+
+                <div class="hero-meter">
+                    <span class="hero-meter-bar"></span>
+                </div>
+
+                <p class="hero-vol">VOL. 001 · 2026 / SEOUL</p>
+
+                <div class="hero-controls">
+                    <button class="hero-arrow prev" type="button" aria-label="이전 배경" disabled>&lt;</button>
+                    <span class="hero-count">
+                        <span id="heroCurrent">01</span> / 03
+                    </span>
+                    <button class="hero-arrow next" type="button" aria-label="다음 배경" disabled>&gt;</button>
+                </div>
+            </div>
+
+            <p class="hero-speed">33⅓ RPM · STEREO</p>
+            <p class="hero-caption">PLAY / PAUSE YOUR DAY</p>
+        </div>
+    </section>
 
     <main>
-        <section class="profile">
+        <section class="profile" id="profile">
             <p class="avatar">🎧</p>
             <div class="intro">
                 <h3>DJ 영빈</h3>
@@ -70,15 +95,20 @@
             <ul class="tags">
                 <li>#K-POP</li>
                 <li>#J-POP</li>
-                <li>#POP </li>
+                <li>#POP</li>
             </ul>
         </section>
+
         <section id="posts">
-            <h2>오늘의 선곡 </h2>
+            <h2>오늘의 선곡</h2>
+
             <article class="post">
-                <div class="thumb"><div class="bg"></div></div>
+                <div class="thumb">
+                    <div class="bg"></div>
+                </div>
+
                 <div class="info">
-                    <p class="cate ">01 / K-POP · DREAMY MOOD</p>
+                    <p class="cate">01 / K-POP · DREAMY MOOD</p>
                     <h3>낯선 듯 익숙한 설렘의 K-POP</h3>
                     <p class="track">TRACKLIST / 03 SONGS</p>
                     <p class="list">ROSÉ — toxic till the end</p>
@@ -87,10 +117,14 @@
                     <a href="#" class="more">▶ 플레이리스트 듣기</a>
                 </div>
             </article>
+
             <article class="post">
-                <div class="thumb"><div class="bg"></div></div>
+                <div class="thumb">
+                    <div class="bg"></div>
+                </div>
+
                 <div class="info">
-                    <p class="cate">02 / J-POP · LOVE&NOSTALIGIA</p>
+                    <p class="cate">02 / J-POP · LOVE &amp; NOSTALGIA</p>
                     <h3>설렘과 그리움 사이의 J-POP</h3>
                     <p class="track">TRACKLIST / 03 SONGS</p>
                     <p class="list">Vaundy — 恋風邪にのせて</p>
@@ -99,8 +133,12 @@
                     <a href="#" class="more">▶ 플레이리스트 듣기</a>
                 </div>
             </article>
+
             <article class="post">
-                <div class="thumb"><div class="bg"></div></div>
+                <div class="thumb">
+                    <div class="bg"></div>
+                </div>
+
                 <div class="info">
                     <p class="cate">03 / POP · SOFT GROOVE</p>
                     <h3>나른한 리듬에 스며드는 POP</h3>
@@ -111,47 +149,56 @@
                     <a href="#" class="more">▶ 플레이리스트 듣기</a>
                 </div>
             </article>
-
         </section>
+
         <section id="photos">
             <h2>무드별 PLAYLIST</h2>
+
             <ul class="photos">
                 <li class="p1">
                     <p class="li_title">01 / AFTER DARK · CITY WALK</p>
                     <h2>도시는 아직 잠들지 않아</h2>
                     <p>잠들지 않는 거리와 이어폰 속 작은 설렘</p>
-                    <p>NIGHT WALK / CURATED MIX</p>                    
+                    <p>NIGHT WALK / CURATED MIX</p>
                 </li>
+
                 <li class="p2">
                     <p class="li_title">02 / SLOW MOTION · TOKYO</p>
                     <h2>네온 아래, 조금 느리게</h2>
                     <p>익숙한 골목도 영화의 한 장면처럼</p>
                 </li>
+
                 <li class="p3">
                     <p class="li_title">03 / 2AM · SOFT FOCUS</p>
                     <h2>새벽 두 시의 온도</h2>
                     <p>조용해진 시간, 마음만은 선명하게</p>
-                    <p>AFTER HOURS / CURATED MIX</p>  
+                    <p>AFTER HOURS / CURATED MIX</p>
                 </li>
+
                 <li class="p4">
                     <p class="li_title">04 / RETRO · NEW JACK SWING</p>
                     <h2>뉴잭스윙의 밤</h2>
                     <p>리듬을 타고 걷고 싶은 밤</p>
                 </li>
+
                 <li class="p5">
                     <p class="li_title">05 / OLD FILM · VINTAGE</p>
                     <h2>진정한 빈티지의 완성</h2>
                     <p>오래된 레코드에서 꺼낸 감성</p>
-                    <p>VINTAGE / CURATED MIX</p>  
+                    <p>VINTAGE / CURATED MIX</p>
                 </li>
             </ul>
         </section>
     </main>
+
     <footer>
         <p>© 2026 33⅓</p>
         <p>오늘의 기분을 음악으로 기록하는 공간</p>
     </footer>
+
     <a href="#top" class="top">TOP</a>
+
+    <script src="./js/app.js"></script>
 </body>
 
 </html>
