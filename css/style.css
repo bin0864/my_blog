@@ -149,7 +149,6 @@ nav ul {
 }
 
 .thumb {
-    background-color: #333333;
     width: 20rem;
     height: 20rem;
     border-radius: 1.2rem;
@@ -270,18 +269,47 @@ section>h2{
 }
 .p1 {
     grid-area: p1;
+    background: url(../img/MOOD01_black.png) no-repeat center/cover;
 }
+
+.p1:hover {
+    background: url(../img/MOOD01.png) no-repeat center/cover;
+}
+
 .p2 {
     grid-area: p2;
+    background: url(../img/MOOD02_black.png) no-repeat center/cover;
 }
+
+.p2:hover {
+    background: url(../img/MOOD02.png) no-repeat center/cover;
+}
+
 .p3 {
     grid-area: p3;
+    background: url(../img/MOOD03_black.png) no-repeat center/cover;
 }
+
+.p3:hover {
+    background: url(../img/MOOD03.png) no-repeat center/cover;
+}
+
 .p4 {
     grid-area: p4;
+    background: url(../img/MOOD04_black.png) no-repeat center/cover;
 }
+
+.p4:hover {
+    background: url(../img/MOOD04.png) no-repeat center/cover;
+}
+
 .p5 {
     grid-area: p5;
+    background: url(../img/MOOD05_black.png) no-repeat center/cover;
+}
+
+.p5:hover {
+    background: url(../img/MOOD05.png) no-repeat center/cover;
 }
 
 .photos li {
