@@ -67,6 +67,7 @@ nav ul {
     overflow: hidden;
 }
 
+
 .hero::before {
     content: "";
     position: absolute;
@@ -79,7 +80,20 @@ nav ul {
     background-position: center;
     background-size: contain;
     z-index: 1;
+
+    animation: record 4s linear infinite;
 }
+
+@keyframes record {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 
 .hero::after {
@@ -389,50 +403,79 @@ section>h2{
     grid-template-areas: "p1 p1 p2 p3" "p4 p5 p5 p3 "
     ;
 }
+
 .p1 {
     grid-area: p1;
-    background: url(../img/MOOD01_black.png) no-repeat center/cover;
-}
-
-.p1:hover {
-    background: url(../img/MOOD01.png) no-repeat center/cover;
 }
 
 .p2 {
     grid-area: p2;
-    background: url(../img/MOOD02_black.png) no-repeat center/cover;
-}
-
-.p2:hover {
-    background: url(../img/MOOD02.png) no-repeat center/cover;
 }
 
 .p3 {
     grid-area: p3;
-    background: url(../img/MOOD03_black.png) no-repeat center/cover;
-}
-
-.p3:hover {
-    background: url(../img/MOOD03.png) no-repeat center/cover;
 }
 
 .p4 {
     grid-area: p4;
-    background: url(../img/MOOD04_black.png) no-repeat center/cover;
-}
-
-.p4:hover {
-    background: url(../img/MOOD04.png) no-repeat center/cover;
 }
 
 .p5 {
     grid-area: p5;
-    background: url(../img/MOOD05_black.png) no-repeat center/cover;
 }
 
-.p5:hover {
-    background: url(../img/MOOD05.png) no-repeat center/cover;
+.photos li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.3rem;
+    background-color: black;
+    color: #FFF8E7;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
 }
+
+.photos li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(100%);
+    transition: filter .5s;
+    z-index: -1;
+}
+
+.p1::before {
+    background-image: url("../img/MOOD01.png");
+}
+
+.p2::before {
+    background-image: url("../img/MOOD02.png");
+}
+
+.p3::before {
+    background-image: url("../img/MOOD03.png");
+}
+
+.p4::before {
+    background-image: url("../img/MOOD04.png");
+}
+
+.p5::before {
+    background-image: url("../img/MOOD05.png");
+}
+
+.photos li:hover::before {
+    filter: grayscale(0%);
+}
+
 
 .photos li {
     display: flex;
