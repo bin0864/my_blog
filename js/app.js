@@ -1,4 +1,3 @@
-
 const body = document.querySelector("body");
 const topBtn = document.querySelector(".top");
 
@@ -15,6 +14,9 @@ const subtitleText = document.querySelector(".sub");
 
 const slideDuration = 8000;
 const fadeDuration = 1200;
+
+const tabs=document.querySelectorAll('.guide-tabs li ')
+const contents= document.querySelectorAll('.guide-content li')
 
 let current = 0;
 let slideTimer;
@@ -121,3 +123,28 @@ topBtn.addEventListener("click", (event) => {
         behavior: "smooth"
     });
 });
+
+init(0)
+
+function init(num){
+    tabs[num].classList.add('on')
+    contents[num].classList.add('on')
+}
+
+function reset(){
+    for(let i=0 ;i<tabs.length;i++){
+        
+        tabs[i].classList.remove('on')
+        contents[i].classList.remove('on')
+    }
+}
+
+
+tabs.forEach(function(tab,i){
+    tab.addEventListener('click',function(){
+        console.log(i)
+        reset()
+        init(i)
+    })
+
+})
