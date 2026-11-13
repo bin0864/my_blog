@@ -1,0 +1,664 @@
+@media (max-width: 1100px) {
+    .inner,
+    main {
+        width: calc(100% - 5rem);
+    }
+
+    .hero-txt {
+        max-width: 55%;
+    }
+
+    .post .info {
+        min-width: 0;
+    }
+
+    .post .more {
+        padding: 1rem 2rem;
+    }
+
+    .photos {
+        grid-template-rows: 19rem 19rem;
+    }
+}
+
+/* 900px 이하 - 태블릿 */
+
+@media (max-width: 900px) {
+    header {
+        padding: 1.8rem 0;
+    }
+
+    .logo {
+        font-size: 2.3rem;
+        flex-shrink: 0;
+    }
+
+    nav ul {
+        gap: 1.7rem;
+    }
+
+    .hero {
+        height: 48rem;
+    }
+
+    .hero-txt {
+        max-width: 60%;
+    }
+
+    .hero .title {
+        font-size: 4rem;
+    }
+
+    .record {
+        width: 83rem;
+        height: 83rem;
+        right: -35rem;
+        top: -14rem;
+    }
+
+    .tonearm {
+        width: 34rem;
+        height: 34rem;
+        right: 27rem;
+        top: 7rem;
+    }
+
+    .profile {
+        padding: 2.4rem;
+    }
+
+    .post,
+    .post:nth-last-of-type(2) {
+        padding: 1.8rem;
+        gap: 1.8rem;
+    }
+
+    .post .thumb {
+        width: 17rem;
+        height: 17rem;
+        margin: 0;
+    }
+
+    .post .info {
+        flex: 1;
+    }
+
+    .post .info h3 {
+        font-size: 2.4rem;
+    }
+
+    .post .cate,
+    .post .track {
+        font-size: 1.2rem;
+    }
+
+    .post .list {
+        font-size: 1.35rem;
+    }
+
+    .post .more,
+    .post:nth-last-of-type(2) .more {
+        display: inline-block;
+        position: static;
+        margin-top: 1.3rem;
+        padding: .9rem 1.7rem;
+        font-size: 1.2rem;
+    }
+
+    .notes {
+        margin-top: 6rem;
+        margin-bottom: 5rem;
+    }
+
+    .note-panel {
+        padding: 1.6rem;
+    }
+
+    .note-cards {
+        gap: 1rem;
+        height: 34rem;
+    }
+
+    .note-card {
+        padding: 1.2rem;
+    }
+
+    .note-card.is-active {
+        flex: 1.9;
+    }
+
+    .note-compact {
+        left: 1.2rem;
+        bottom: 1.2rem;
+    }
+
+    .note-detail-bottom h3 {
+        font-size: 1.8rem;
+    }
+
+    .note-detail-bottom p,
+    .listening-item p {
+        font-size: 1.1rem;
+    }
+
+    .note-vinyl {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+
+    .photos {
+        grid-template-rows: 18rem 18rem;
+    }
+
+    .photos li h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* 640px 이하 - 모바일 */
+
+@media (max-width: 640px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        min-width: 0;
+        overflow-x: clip;
+    }
+
+    .inner,
+    main {
+        width: calc(100% - 3.2rem);
+        max-width: none;
+    }
+
+    #posts,
+    #photos,
+    #profile,
+    #notes {
+        scroll-margin-top: 8.5rem;
+    }
+
+    /* HEADER */
+
+    header {
+        padding: 1.4rem 0;
+    }
+
+    header .inner {
+        width: calc(100% - 3.2rem);
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+        white-space: nowrap;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: clamp(.55rem, 2.4vw, 1.2rem);
+    }
+
+    nav a {
+        display: inline-block;
+        font-size: clamp(.9rem, 2.6vw, 1.1rem);
+        white-space: nowrap;
+    }
+
+    /* HERO */
+
+    .hero {
+        height: 46rem;
+    }
+
+    .hero .inner {
+        width: calc(100% - 3.2rem);
+        align-items: center;
+    }
+
+    .hero-txt {
+        width: 23rem;
+        max-width: 66%;
+        margin-top: 5rem;
+    }
+
+    .side {
+        font-size: .8rem;
+        line-height: 1.5;
+        margin-bottom: 1.1rem;
+        padding-top: 1rem;
+    }
+
+    .sub {
+        font-size: .8rem;
+        letter-spacing: .24rem;
+    }
+
+    .hero .title {
+        font-size: clamp(2.7rem, 7vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: -.06rem;
+    }
+
+    .hero-desc {
+        font-size: 1.15rem;
+        line-height: 1.5;
+        margin-top: .6rem;
+    }
+
+    .hero .btn {
+        font-size: 1.1rem;
+        padding: 1rem 1.8rem;
+        margin-top: 2rem;
+    }
+
+    .hero-meter {
+        width: 100%;
+        margin-top: 3rem;
+    }
+
+    .hero-vol {
+        font-size: .85rem;
+        margin-top: 1.2rem;
+    }
+
+    .hero-controls {
+        margin-top: 1.1rem;
+    }
+
+    .hero-arrow {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-count {
+        font-size: .95rem;
+    }
+
+    /* 레코드와 폰암 위치 */
+
+    .record {
+        width: 56rem;
+        height: 56rem;
+        right: -34rem;
+        top: -4rem;
+    }
+
+    .tonearm {
+        width: 20rem;
+        height: 20rem;
+        right: 2.5rem;
+        top: 8.5rem;
+    }
+
+    .hero-speed,
+    .hero-caption {
+        display: none;
+    }
+
+    /* PROFILE */
+
+    .profile {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem 1.6rem;
+        margin-top: -2rem;
+        margin-bottom: 3.7rem;
+        text-align: center;
+        border-radius: 1.2rem;
+    }
+
+    .avatar {
+        font-size: 3rem;
+        padding: 1rem;
+        line-height: 1;
+    }
+
+    .intro {
+        flex: initial;
+    }
+
+    .intro h3 {
+        font-size: 1.9rem;
+    }
+
+    .intro p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
+
+    .tags {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .tags li {
+        font-size: 1rem;
+    }
+
+    /* 섹션 제목 */
+
+    section > h2 {
+        margin: 2.6rem 0 1.5rem;
+        font-size: 2.6rem;
+    }
+
+    /* TODAY PLAYLIST */
+
+    .post,
+    .post:nth-last-of-type(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 1.5rem;
+        margin: 0 0 1.4rem;
+        border-radius: 1.4rem;
+    }
+
+    .post .thumb {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        padding: 0;
+        margin: 0 0 1.4rem;
+        border-radius: 1rem;
+    }
+
+    .post .info,
+    .post:nth-last-of-type(2) .info {
+        width: 100%;
+        flex: initial;
+        min-width: 0;
+        text-align: left;
+    }
+
+    .post .cate,
+    .post .track {
+        font-size: 1.1rem;
+        margin: .8rem 0;
+    }
+
+    .post .info h3 {
+        font-size: 2.25rem;
+        line-height: 1.15;
+        word-break: keep-all;
+    }
+
+    .post .list {
+        font-size: 1.22rem;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+
+    .post .more,
+    .post:nth-last-of-type(2) .more {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 1.1rem 1.4rem;
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        border-radius: .7rem;
+    }
+
+    /* SELECTION NOTES */
+
+    .notes {
+        margin-top: 5.2rem;
+        margin-bottom: 5rem;
+    }
+
+    .notes > h2 {
+        margin: 0 0 1.6rem;
+        font-size: 2.6rem;
+        text-align: center;
+    }
+
+    /* 기존 버튼 스타일과 모션 유지 */
+
+    .note-tabs {
+        width: 100%;
+        gap: .2rem;
+        padding: .3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .note-tabs button {
+        padding: 1rem .1rem;
+        font-size: clamp(.9rem, 2.45vw, 1.1rem);
+        white-space: nowrap;
+    }
+
+    /* 검정 카드 컨테이너 */
+
+    .note-panel {
+        padding: 1rem;
+        border-radius: 1.2rem;
+    }
+
+    /* 카드 가로 스크롤 */
+
+    .note-cards {
+        width: 100%;
+        height: 35rem;
+        gap: .8rem;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .note-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .note-card {
+        flex: 0 0 8.5rem;
+        min-width: 8.5rem;
+        padding: 1.4rem;
+        scroll-snap-align: center;
+        transition: background-color .3s, border-color .3s;
+    }
+
+    .note-card.is-active {
+        flex: 0 0 min(74vw, 28rem);
+        min-width: min(74vw, 28rem);
+    }
+
+    .note-compact {
+        left: 1rem;
+        bottom: 1.2rem;
+        white-space: normal;
+    }
+
+    .note-compact h3 {
+        font-size: 1.35rem;
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .note-vinyl {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+    }
+
+    .note-pill {
+        padding: .5rem .8rem;
+        font-size: .85rem;
+    }
+
+    .note-detail-bottom h3 {
+        font-size: 1.8rem;
+    }
+
+    .note-detail-bottom p {
+        font-size: 1.1rem;
+    }
+
+    .listening-item {
+        padding: .8rem 0;
+    }
+
+    .listening-item strong {
+        font-size: 1rem;
+    }
+
+    .listening-item p {
+        font-size: 1.05rem;
+    }
+
+    .rating-stars {
+        font-size: 2.3rem;
+        letter-spacing: 0;
+    }
+
+    .rating-review {
+        font-size: 1.1rem;
+        margin-top: 1.3rem;
+    }
+
+    .rating-score {
+        font-size: 1.25rem;
+    }
+
+    /* MOOD PLAYLIST */
+
+    #photos {
+        margin-top: 4.4rem;
+    }
+
+    .photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: 16rem 18rem 18rem;
+        grid-template-areas:
+            "p1 p1"
+            "p2 p3"
+            "p4 p5";
+        gap: .9rem;
+    }
+
+    .photos li {
+        padding: 1.1rem;
+    }
+
+    .photos li::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            transparent 18%,
+            rgba(0, 0, 0, .7) 100%
+        );
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .photos li h2 {
+        font-size: 1.7rem;
+        line-height: 1.1;
+        word-break: keep-all;
+    }
+
+    .photos .li_title {
+        top: 1.1rem;
+        font-size: .85rem;
+    }
+
+    .photos li p {
+        font-size: .9rem;
+        overflow-wrap: anywhere;
+    }
+
+    .photos li p:last-child {
+        font-size: .8rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: .6rem;
+        padding: 2.4rem 1.5rem;
+        margin-top: 5rem;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* TOP */
+
+    .top {
+        width: 5.4rem;
+        height: 5.4rem;
+        bottom: 1.6rem;
+        right: 1.6rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* 360px 이하 */
+
+@media (max-width: 360px) {
+    header .inner {
+        gap: .6rem;
+    }
+
+    nav ul {
+        gap: .5rem;
+    }
+
+    nav a {
+        font-size: .88rem;
+    }
+
+    .hero-txt {
+        max-width: 69%;
+    }
+
+    .hero .title {
+        font-size: 2.65rem;
+    }
+
+    .record {
+        right: -37rem;
+    }
+
+    .tonearm {
+        right: 1.4rem;
+    }
+
+    .note-card.is-active {
+        flex-basis: 75vw;
+        min-width: 75vw;
+    }
+
+    .photos {
+        grid-template-rows: 15rem 17rem 17rem;
+    }
+
+    .photos li h2 {
+        font-size: 1.5rem;
+    }
+}

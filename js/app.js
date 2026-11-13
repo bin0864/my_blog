@@ -1,150 +1,196 @@
-const body = document.querySelector("body");
-const topBtn = document.querySelector(".top");
+const body = document.body;
+const topBtn = document.querySelector('.top');
 
-const hero = document.querySelector(".hero");
-const scenes = document.querySelectorAll(".hero-scene");
-const tonearm = document.querySelector(".tonearm");
+const hero = document.querySelector('.hero');
+const scenes = [...document.querySelectorAll('.hero-scene')];
+const tonearm = document.querySelector('.tonearm');
 
-const previousBtn = document.querySelector(".hero-arrow.prev");
-const nextBtn = document.querySelector(".hero-arrow.next");
+const prevBtn = document.querySelector('.hero-arrow.prev');
+const nextBtn = document.querySelector('.hero-arrow.next');
 
-const currentText = document.querySelector("#heroCurrent");
-const volumeText = document.querySelector(".hero-vol");
-const subtitleText = document.querySelector(".sub");
+const heroCurrent = document.querySelector('#heroCurrent');
+const heroVolume = document.querySelector('.hero-vol');
+const heroSub = document.querySelector('.sub');
 
 const slideDuration = 8000;
 const fadeDuration = 1200;
 
-const tabs=document.querySelectorAll('.guide-tabs li ')
-const contents= document.querySelectorAll('.guide-content li')
+let currentScene = 0;
+let slideTimer = null;
+let videoStopTimer = null;
+let heroReady = false;
 
-let current = 0;
-let slideTimer;
-let isReady = false;
+/* HERO 배경 전환 */
 
 function showScene(index) {
+    currentScene = (index + scenes.length) % scenes.length;
 
-    current = (index + scenes.length) % scenes.length;
+    const activeVideo = scenes[currentScene].querySelector('video');
 
-    const nextVideo = scenes[current].querySelector("video");
+    if (activeVideo) {
+        try {
+            activeVideo.currentTime = 0;
+        } catch (_) {}
 
-    if (nextVideo) {
-        nextVideo.currentTime = 0;
-        nextVideo.play().catch(() => {});
+        activeVideo.play().catch(() => {});
     }
 
     scenes.forEach((scene, i) => {
-        scene.classList.toggle("is-active", i === current);
+        scene.classList.toggle('is-active', i === currentScene);
     });
 
-    hero.dataset.scene = String(current + 1);
+    hero.dataset.scene = String(currentScene + 1);
 
-    currentText.textContent =
-        String(current + 1).padStart(2, "0");
+    const number = String(currentScene + 1).padStart(2, '0');
+    const volume = String(currentScene + 1).padStart(3, '0');
 
-    const volume = String(current + 1).padStart(3, "0");
+    heroCurrent.textContent = number;
+    heroVolume.textContent = `VOL. ${volume} · 2026 / SEOUL`;
+    heroSub.textContent = `CURATED MIX / VOL. ${volume}`;
 
-    volumeText.textContent =
-        "VOL. " + volume + " · 2026 / SEOUL";
+    clearTimeout(videoStopTimer);
 
-    subtitleText.textContent =
-        "CURATED MIX / VOL. " + volume;
-
-    setTimeout(() => {
+    videoStopTimer = setTimeout(() => {
         scenes.forEach((scene, i) => {
-            if (i !== current) {
-                const video = scene.querySelector("video");
-
-                if (video) {
-                    video.pause();
-                }
+            if (i !== currentScene) {
+                scene.querySelector('video')?.pause();
             }
         });
     }, fadeDuration);
 }
 
-function resetTimer() {
+function resetHeroTimer() {
     clearInterval(slideTimer);
 
     slideTimer = setInterval(() => {
-        showScene(current + 1);
+        showScene(currentScene + 1);
     }, slideDuration);
 }
 
-function startPlayback() {
+function startHero() {
+    if (heroReady) return;
 
-    if (isReady) return;
+    heroReady = true;
+    hero.classList.add('is-playing');
 
-    isReady = true;
-
-    hero.classList.add("is-playing");
-
-    previousBtn.disabled = false;
+    prevBtn.disabled = false;
     nextBtn.disabled = false;
 
-    resetTimer();
+    resetHeroTimer();
 }
 
-const startupTimer = setTimeout(startPlayback, 2100);
+const heroStartFallback = setTimeout(startHero, 2200);
 
-tonearm.addEventListener("animationend", (event) => {
-
-    if (event.animationName === "tonearmMove") {
-        clearTimeout(startupTimer);
-        startPlayback();
+tonearm.addEventListener('animationend', event => {
+    if (event.animationName === 'tonearmMove') {
+        clearTimeout(heroStartFallback);
+        startHero();
     }
 });
 
-previousBtn.addEventListener("click", () => {
-    if (!isReady) return;
+prevBtn.addEventListener('click', () => {
+    if (!heroReady) return;
 
-    showScene(current - 1);
-    resetTimer();
+    showScene(currentScene - 1);
+    resetHeroTimer();
 });
 
-nextBtn.addEventListener("click", () => {
-    if (!isReady) return;
+nextBtn.addEventListener('click', () => {
+    if (!heroReady) return;
 
-    showScene(current + 1);
-    resetTimer();
+    showScene(currentScene + 1);
+    resetHeroTimer();
 });
 
 /* TOP 버튼 */
 
-window.addEventListener("scroll", () => {
-    body.classList.toggle("scroll", window.scrollY > 80);
+function updateScrollHeader() {
+    body.classList.toggle('scroll', window.scrollY > 80);
+}
+
+window.addEventListener('scroll', updateScrollHeader, {
+    passive: true
 });
 
-topBtn.addEventListener("click", (event) => {
+updateScrollHeader();
+
+topBtn.addEventListener('click', event => {
     event.preventDefault();
 
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
     });
 });
 
-init(0)
+/* 선곡 노트 탭 */
 
-function init(num){
-    tabs[num].classList.add('on')
-    contents[num].classList.add('on')
+const noteTabs = [...document.querySelectorAll('.note-tabs button')];
+const noteCards = [...document.querySelectorAll('.note-card')];
+
+function selectNote(index) {
+    noteTabs.forEach((tab, i) => {
+        const isSelected = i === index;
+
+        tab.classList.toggle('is-active', isSelected);
+
+        tab.setAttribute(
+            'aria-selected',
+            String(isSelected)
+        );
+
+        tab.tabIndex = isSelected ? 0 : -1;
+    });
+
+    noteCards.forEach((card, i) => {
+        const isSelected = i === index;
+
+        card.classList.toggle('is-active', isSelected);
+
+        card.setAttribute(
+            'aria-hidden',
+            String(!isSelected)
+        );
+    });
 }
 
-function reset(){
-    for(let i=0 ;i<tabs.length;i++){
-        
-        tabs[i].classList.remove('on')
-        contents[i].classList.remove('on')
-    }
-}
+/* 탭 클릭 및 키보드 이동 */
 
+noteTabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+        selectNote(i);
+    });
 
-tabs.forEach(function(tab,i){
-    tab.addEventListener('click',function(){
-        console.log(i)
-        reset()
-        init(i)
-    })
+    tab.addEventListener('keydown', event => {
+        let next = i;
 
-})
+        if (event.key === 'ArrowRight') {
+            next = (i + 1) % noteTabs.length;
+        } else if (event.key === 'ArrowLeft') {
+            next = (i - 1 + noteTabs.length) % noteTabs.length;
+        } else if (event.key === 'Home') {
+            next = 0;
+        } else if (event.key === 'End') {
+            next = noteTabs.length - 1;
+        } else {
+            return;
+        }
+
+        event.preventDefault();
+
+        selectNote(next);
+        noteTabs[next].focus();
+    });
+});
+
+/* 데스크톱에서는 카드 직접 클릭 가능 */
+
+noteCards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+        selectNote(i);
+    });
+});
+
+/* 초기 상태 */
+
+selectNote(0);
