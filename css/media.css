@@ -429,8 +429,6 @@
         text-align: center;
     }
 
-    /* 기존 버튼 스타일과 모션 유지 */
-
     .note-tabs {
         width: 100%;
         gap: .2rem;
@@ -444,14 +442,10 @@
         white-space: nowrap;
     }
 
-    /* 검정 카드 컨테이너 */
-
     .note-panel {
         padding: 1rem;
         border-radius: 1.2rem;
     }
-
-    /* 카드 가로 스크롤 */
 
     .note-cards {
         width: 100%;

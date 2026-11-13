@@ -82,6 +82,10 @@ header .inner {
     font-size: 2.6rem;
 }
 
+nav{
+    
+}
+
 nav ul {
     display: flex;
     gap: 2.8rem;
@@ -1120,9 +1124,10 @@ footer {
     }
 }
 
-/* MOBILE */
+
 
 @media (max-width: 700px) {
+
     .inner, main {
         width: calc(100% - 3.2rem);
     }
@@ -1233,8 +1238,6 @@ footer {
         top: 8.5rem;
     }
 
-    /* 모바일 DJ 카드 */
-
     .profile {
         margin-top: -2rem;
         margin-bottom: 3.2rem;
@@ -1256,8 +1259,6 @@ footer {
         font-size: 1.18rem;
     }
 
-    /* 섹션 제목 */
-
     section > h2 {
         font-size: 2.6rem;
         margin: 2.4rem 0 1.5rem;
@@ -1266,8 +1267,6 @@ footer {
     #posts {
         margin-top: 2rem;
     }
-
-    /* 모바일 음악 카드 */
 
     .post,
     .post:nth-of-type(2) {
@@ -1306,90 +1305,237 @@ footer {
         border-radius: .7rem;
     }
 
-    /* 모바일 선곡 노트 */
-
     .notes {
-        margin: 5.4rem auto 5rem;
+        width: 100%;
+        margin: 6rem auto;
     }
 
     .notes > h2 {
         font-size: 2.6rem;
-        margin-bottom: 1.4rem;
+        text-align: center;
+        margin-bottom: 2rem;
     }
 
     .note-tabs {
+        display: flex;
         width: 100%;
-        padding: .3rem;
+        max-width: 44rem;
+        margin: 0 auto 2rem;
+        padding: .4rem;
         gap: .2rem;
-        margin-bottom: 1.5rem;
+        border-radius: 3rem;
+        background-color: #000000;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .note-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+    .note-tabs li {
+        flex: 1 0 auto;
+        min-width: 0;
     }
 
     .note-tabs button {
-        padding: 1rem .1rem;
+        width: 100%;
+        min-height: 4rem;
+        padding: 1rem .8rem;
         font-size: clamp(.9rem, 2.5vw, 1.1rem);
         white-space: nowrap;
     }
 
-    .note-panel {
-        padding: 1.1rem;
-        border-radius: 1.2rem;
+    #notes .note-panel {
+        width: 100%;
+        max-width: 44rem;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+
+        margin: 0 auto;
+        padding: 1.4rem;
+
+        background-color: #050505;
+        border-radius: 1.4rem;
+        overflow: visible;
     }
 
-    /* 모바일: 선택한 카드 1장만 가운데 배치 */
+    #notes .note-cards {
+        display: block;
 
-    .note-cards {
-        display: flex;
-        justify-content: center;
-        align-items: stretch;
-        gap: 0;
         width: 100%;
         height: auto;
-        min-height: 36rem;
-        overflow: hidden;
+        min-height: 0;
+        max-height: none;
+
+        overflow: visible;
     }
 
-    .note-card {
-        display: none;
-        flex: none;
-        min-width: 0;
-        height: 36rem;
-        padding: 1.7rem;
-    }
-
-    .note-card.is-active {
+    #notes .note-card {
         display: block;
-        flex: 0 1 36.5rem;
+        position: relative;
+        flex: none;
+
         width: 100%;
-        max-width: 36.5rem;
-        height: 36rem;
-        margin: 0 auto;
+        max-width: none;
+        min-width: 0;
+
+        height: 8.2rem;
+        min-height: 8.2rem;
+        max-height: none;
+
+        padding: 1.6rem 1.8rem;
+        margin: 0 0 1.2rem;
+
+        border-radius: 1.2rem;
+        overflow: hidden;
+
+        transition:
+            height .5s cubic-bezier(.22, 1, .36, 1),
+            border-color .3s ease,
+            box-shadow .3s ease;
     }
 
-    .note-vinyl {
-        inset: 0;
+    #notes .note-card:last-child {
+        margin-bottom: 0;
+    }
+
+    #notes .note-card.is-active {
+        display: block;
+        flex: none;
+
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        max-width: none;
+        min-width: 0;
+
+        height: 38rem;
+        min-height: 38rem;
+        max-height: none;
+
+        padding: 1.8rem;
+        margin-left: 0;
+        margin-right: 0;
+
+        border-color: #776B68;
     }
 
-    .note-detail-bottom h3 {
-        font-size: 2.15rem;
+    #notes .note-card .note-compact {
+        position: absolute;
+        left: 1.8rem;
+        bottom: 1.5rem;
     }
 
-    .note-detail-bottom p {
-        font-size: 1.18rem;
-    }
-
-    .listening-item {
-        padding: 1rem 0;
-    }
-
-    .listening-item p {
+    .note-compact span {
         font-size: 1.1rem;
     }
 
+    .note-compact h3 {
+        font-size: 1.7rem;
+        line-height: 1.3;
+    }
+
+    #notes .note-card.is-active .note-compact {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    #notes .note-card .note-detail {
+        width: 100%;
+        height: 100%;
+    }
+
+    #notes .note-card.is-active .note-detail {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #notes .note-vinyl,
+    #notes .note-album {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .note-pill {
+        font-size: 1rem;
+        padding: .6rem 1.1rem;
+    }
+
+    /* 하단 텍스트 */
+
+    .note-detail-bottom {
+        margin-top: auto;
+    }
+
+    .note-detail-bottom h3 {
+        font-size: 2.2rem;
+        line-height: 1.25;
+    }
+
+    .note-detail-bottom p {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        line-height: 1.65;
+        word-break: keep-all;
+    }
+
+    /* 리스닝 포인트 */
+
+    .note-headphone {
+        font-size: 2.4rem;
+    }
+
+    .listening-content {
+        margin-top: auto;
+    }
+
+    .listening-item {
+        padding: 1.2rem 0;
+    }
+
+    .listening-item strong {
+        font-size: 1.2rem;
+    }
+
+    .listening-item p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        margin-top: .5rem;
+        word-break: keep-all;
+    }
+
+    /* 평점 */
+
+    .rating-content {
+        padding-top: 1rem;
+        gap: 1rem;
+    }
+
+    .rating-content h3 {
+        font-size: 2.2rem;
+    }
+
     .rating-stars {
-        font-size: 2.6rem;
+        font-size: 2.8rem;
+    }
+
+    .rating-review {
+        font-size: 1.2rem;
+        line-height: 1.7;
+    }
+
+    .rating-score {
+        font-size: 1.5rem;
+    }
+
+    .rating-artist {
+        font-size: 1.1rem;
     }
 
     /* 모바일 무드별 Playlist */
@@ -1431,8 +1577,6 @@ footer {
         font-size: .78rem;
     }
 
-    /* 모바일 푸터 & TOP */
-
     footer {
         flex-direction: column;
         gap: .5rem;
@@ -1449,6 +1593,7 @@ footer {
         font-size: 1.4rem;
     }
 }
+
 
 /* 360px 이하 */
 
