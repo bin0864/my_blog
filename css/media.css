@@ -1,48 +1,17 @@
-@media (max-width: 1100px) {
-    .inner,
-    main {
-        width: calc(100% - 5rem);
+@media (min-width: 701px) and (max-width: 980px) {
+
+    .inner, main {
+        width: calc(100% - 4rem);
     }
 
-    .hero-txt {
-        max-width: 55%;
-    }
-
-    .post .info {
-        min-width: 0;
-    }
-
-    .post .more {
-        padding: 1rem 2rem;
-    }
-
-    .photos {
-        grid-template-rows: 19rem 19rem;
-    }
-}
-
-/* 900px 이하 - 태블릿 */
-
-@media (max-width: 900px) {
-    header {
-        padding: 1.8rem 0;
-    }
-
-    .logo {
-        font-size: 2.3rem;
-        flex-shrink: 0;
-    }
-
-    nav ul {
-        gap: 1.7rem;
-    }
+    /* 헤더 및 레코드 */
 
     .hero {
         height: 48rem;
     }
 
     .hero-txt {
-        max-width: 60%;
+        max-width: 62%;
     }
 
     .hero .title {
@@ -63,217 +32,278 @@
         top: 7rem;
     }
 
+    .hero-speed,
+    .hero-caption {
+        display: none;
+    }
+
+    /* DJ 프로필 */
+
     .profile {
-        padding: 2.4rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.2rem;
+        padding: 2.3rem 1.8rem;
     }
 
-    .post,
-    .post:nth-last-of-type(2) {
-        padding: 1.8rem;
-        gap: 1.8rem;
+    .profile .intro {
+        flex: none;
     }
 
-    .post .thumb {
-        width: 17rem;
-        height: 17rem;
-        margin: 0;
+    .tags {
+        justify-content: center;
     }
 
-    .post .info {
-        flex: 1;
-    }
+    /* 오늘의 선곡 — 컴팩트 가로형 */
 
-    .post .info h3 {
-        font-size: 2.4rem;
-    }
+    
+/* 태블릿 오늘의 선곡 */
 
-    .post .cate,
-    .post .track {
-        font-size: 1.2rem;
-    }
+.post,
+.post:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    .post .list {
-        font-size: 1.35rem;
-    }
+    gap: 2.4rem;
+    padding: 2rem;
+    min-height: 23rem;
+}
 
-    .post .more,
-    .post:nth-last-of-type(2) .more {
-        display: inline-block;
-        position: static;
-        margin-top: 1.3rem;
-        padding: .9rem 1.7rem;
-        font-size: 1.2rem;
-    }
+/* J-POP은 이미지 오른쪽 */
+
+.post:nth-of-type(2) {
+    flex-direction: row-reverse;
+}
+
+/* 앨범 커버 */
+
+.post .thumb {
+    flex: 1;
+    width: clamp(17rem, 23vw, 20rem);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+}
+
+/* 앨범 커버 잘림 방지 */
+
+.post .thumb .bg {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 곡 소개 */
+
+.post .info {
+    display: flex;
+    flex: 0 1 clamp(28rem, 42vw, 39rem);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+}
+
+/* 제목 */
+
+.post .info h3 {
+    font-size: clamp(2rem, 2.5vw, 2.4rem);
+    line-height: 1.25;
+    margin: .5rem 0;
+    word-break: keep-all;
+}
+
+/* 카테고리 및 트랙리스트 */
+
+.post .cate,
+.post .track {
+    font-size: 1.2rem;
+    margin: .7rem 0;
+}
+
+/* 음악 목록 */
+
+.post .list {
+    font-size: 1.35rem;
+    line-height: 1.6;
+}
+
+/* 플레이리스트 버튼 */
+
+.post .more {
+    position: static;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: none;
+    align-self: flex-start;
+
+    grid-column: auto;
+    grid-row: auto;
+
+    width: auto;
+    min-width: 0;
+
+    margin-top: 1.6rem;
+    padding: 1.1rem 2.2rem;
+
+    font-size: 1.25rem;
+    border-radius: .7rem;
+}
+
+
+    /* 태블릿 선곡 노트 — 세로형 */
 
     .notes {
-        margin-top: 6rem;
-        margin-bottom: 5rem;
+        margin-block: 6rem;
     }
 
-    .note-panel {
-        padding: 1.6rem;
+    #notes .note-panel {
+        width: min(100%, 54rem);
+        height: auto;
+        margin: 0 auto;
+        padding: 1.8rem;
     }
 
-    .note-cards {
-        gap: 1rem;
-        height: 34rem;
+    #notes .note-cards {
+        display: block;
+        height: auto;
+        min-height: 0;
+        overflow: visible;
     }
 
-    .note-card {
-        padding: 1.2rem;
-    }
-
-    .note-card.is-active {
-        flex: 1.9;
-    }
-
-    .note-compact {
-        left: 1.2rem;
-        bottom: 1.2rem;
-    }
-
-    .note-detail-bottom h3 {
-        font-size: 1.8rem;
-    }
-
-    .note-detail-bottom p,
-    .listening-item p {
-        font-size: 1.1rem;
-    }
-
-    .note-vinyl {
+    #notes .note-card {
+        display: block;
+        flex: none;
         width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        object-fit: cover;
+        min-width: 0;
+        height: 8.2rem;
+        min-height: 8.2rem;
+        max-height: none;
+        margin: 0 0 1.2rem;
+        padding: 1.6rem 1.8rem;
+        transition:
+            height .5s cubic-bezier(.22, 1, .36, 1),
+            border-color .3s,
+            box-shadow .3s;
     }
+
+    #notes .note-card:last-child {
+        margin-bottom: 0;
+    }
+
+    #notes .note-card.is-active {
+        height: 38rem;
+        min-height: 38rem;
+    }
+
+    /* 무드별 Playlist */
 
     .photos {
-        grid-template-rows: 18rem 18rem;
-    }
-
-    .photos li h2 {
-        font-size: 1.8rem;
+        grid-template-rows: 19rem 19rem;
     }
 }
 
-/* 640px 이하 - 모바일 */
+/* -----------------------------------------
+   모바일 700px 이하
+   이미지 → 설명 → 버튼
+   선곡 노트는 세로 아코디언
+   ----------------------------------------- */
 
-@media (max-width: 640px) {
-    html {
-        font-size: 62.5%;
-    }
+@media (max-width: 700px) {
 
-    body {
-        min-width: 0;
-        overflow-x: clip;
-    }
-
-    .inner,
-    main {
+    .inner, main {
         width: calc(100% - 3.2rem);
-        max-width: none;
     }
 
-    #posts,
-    #photos,
-    #profile,
-    #notes {
-        scroll-margin-top: 8.5rem;
+    #posts, #photos, #notes, #profile {
+        scroll-margin-top: 8rem;
     }
 
-    /* HEADER */
+    /* 헤더 메뉴 */
 
     header {
-        padding: 1.4rem 0;
+        padding: 1.3rem 0;
     }
 
     header .inner {
         width: calc(100% - 3.2rem);
         display: grid;
         grid-template-columns: auto minmax(0, 1fr);
-        align-items: center;
-        gap: 1.2rem;
+        gap: .6rem;
     }
 
     .logo {
-        font-size: 2rem;
-        white-space: nowrap;
+        font-size: 1.9rem;
     }
 
     nav ul {
-        display: flex;
         justify-content: flex-end;
         flex-wrap: nowrap;
-        gap: clamp(.55rem, 2.4vw, 1.2rem);
+        gap: clamp(.4rem, 1.5vw, 1rem);
     }
 
     nav a {
-        display: inline-block;
-        font-size: clamp(.9rem, 2.6vw, 1.1rem);
-        white-space: nowrap;
+        font-size: clamp(.82rem, 2.45vw, 1.08rem);
     }
 
     /* HERO */
 
     .hero {
-        height: 46rem;
+        height: 45rem;
     }
 
     .hero .inner {
         width: calc(100% - 3.2rem);
-        align-items: center;
     }
 
     .hero-txt {
-        width: 23rem;
-        max-width: 66%;
-        margin-top: 5rem;
+        width: 22rem;
+        max-width: 64%;
+        margin-top: 3.2rem;
     }
 
     .side {
-        font-size: .8rem;
-        line-height: 1.5;
-        margin-bottom: 1.1rem;
-        padding-top: 1rem;
+        font-size: .76rem;
+        padding-top: .9rem;
+        margin-bottom: 1.2rem;
     }
 
     .sub {
         font-size: .8rem;
-        letter-spacing: .24rem;
+        letter-spacing: .22rem;
     }
 
     .hero .title {
-        font-size: clamp(2.7rem, 7vw, 3.5rem);
-        line-height: 1.05;
-        letter-spacing: -.06rem;
+        max-width: 19rem;
+        font-size: clamp(2.65rem, 7.2vw, 3.55rem);
+        line-height: 1.04;
     }
 
     .hero-desc {
-        font-size: 1.15rem;
-        line-height: 1.5;
-        margin-top: .6rem;
+        font-size: 1.1rem;
+        margin-top: .5rem;
     }
 
     .hero .btn {
         font-size: 1.1rem;
-        padding: 1rem 1.8rem;
+        padding: 1rem 1.7rem;
         margin-top: 2rem;
     }
 
     .hero-meter {
-        width: 100%;
         margin-top: 3rem;
     }
 
     .hero-vol {
-        font-size: .85rem;
-        margin-top: 1.2rem;
+        font-size: .84rem;
     }
 
     .hero-controls {
-        margin-top: 1.1rem;
+        margin-top: 1rem;
     }
 
     .hero-arrow {
@@ -282,23 +312,17 @@
         font-size: 1.5rem;
     }
 
-    .hero-count {
-        font-size: .95rem;
-    }
-
-    /* 레코드와 폰암 위치 */
-
     .record {
         width: 56rem;
         height: 56rem;
-        right: -34rem;
+        right: -35rem;
         top: -4rem;
     }
 
     .tonearm {
         width: 20rem;
         height: 20rem;
-        right: 2.5rem;
+        right: 2rem;
         top: 8.5rem;
     }
 
@@ -307,239 +331,293 @@
         display: none;
     }
 
-    /* PROFILE */
+    /* 모바일 DJ 프로필 */
 
     .profile {
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-        padding: 2rem 1.6rem;
-        margin-top: -2rem;
-        margin-bottom: 3.7rem;
         text-align: center;
+        gap: 1.2rem;
+        margin-top: -2rem;
+        margin-bottom: 3.2rem;
+        padding: 2rem 1.4rem;
         border-radius: 1.2rem;
     }
 
-    .avatar {
-        font-size: 3rem;
-        padding: 1rem;
-        line-height: 1;
+    .profile .intro {
+        flex: none;
     }
 
-    .intro {
-        flex: initial;
+    .avatar {
+        width: 6rem;
+        height: 6rem;
+        font-size: 2.8rem;
     }
 
     .intro h3 {
-        font-size: 1.9rem;
+        font-size: 2rem;
     }
 
     .intro p {
-        font-size: 1.15rem;
-        line-height: 1.6;
+        font-size: 1.18rem;
     }
 
     .tags {
         justify-content: center;
-        flex-wrap: wrap;
     }
 
-    .tags li {
-        font-size: 1rem;
-    }
-
-    /* 섹션 제목 */
+    /* 공통 제목 */
 
     section > h2 {
-        margin: 2.6rem 0 1.5rem;
         font-size: 2.6rem;
+        margin: 2.4rem 0 1.5rem;
     }
 
-    /* TODAY PLAYLIST */
+    /* 오늘의 선곡 */
+
+    #posts {
+        margin-top: 2rem;
+    }
 
     .post,
-    .post:nth-last-of-type(2) {
+    .post:nth-of-type(2) {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         padding: 1.5rem;
-        margin: 0 0 1.4rem;
+        margin-bottom: 1.3rem;
         border-radius: 1.4rem;
     }
 
+    /* 정사각형 앨범 커버 */
+
     .post .thumb {
-        width: 100%;
+        flex: 0 0 auto;
+        width: min(100%, 34rem);
+        max-width: 100%;
         height: auto;
-        aspect-ratio: 4 / 3;
-        padding: 0;
-        margin: 0 0 1.4rem;
-        border-radius: 1rem;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto 1.4rem;
     }
 
-    .post .info,
-    .post:nth-last-of-type(2) .info {
+    /* 이미지 전체가 보이도록 */
+
+    .post .thumb .bg {
+        background-size: contain;
+        background-position: center;
+    }
+
+    .post .info {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         width: 100%;
-        flex: initial;
         min-width: 0;
-        text-align: left;
-    }
-
-    .post .cate,
-    .post .track {
-        font-size: 1.1rem;
-        margin: .8rem 0;
     }
 
     .post .info h3 {
         font-size: 2.25rem;
-        line-height: 1.15;
-        word-break: keep-all;
+        line-height: 1.2;
+    }
+
+    .post .cate,
+    .post .track {
+        font-size: 1.13rem;
+        margin: .7rem 0;
     }
 
     .post .list {
         font-size: 1.22rem;
         line-height: 1.6;
-        overflow-wrap: anywhere;
     }
 
-    .post .more,
-    .post:nth-last-of-type(2) .more {
+    .post .more {
         position: static;
         display: flex;
         align-items: center;
         justify-content: center;
+        align-self: stretch;
+        grid-column: auto;
+        grid-row: auto;
         width: 100%;
-        padding: 1.1rem 1.4rem;
-        margin-top: 1.5rem;
+        min-width: 0;
+        margin-top: 1.4rem;
+        padding: 1.15rem;
         font-size: 1.2rem;
-        border-radius: .7rem;
     }
 
-    /* SELECTION NOTES */
+    /* 선곡 노트 제목 */
 
     .notes {
-        margin-top: 5.2rem;
-        margin-bottom: 5rem;
+        width: 100%;
+        margin: 6rem auto;
     }
 
     .notes > h2 {
-        margin: 0 0 1.6rem;
         font-size: 2.6rem;
         text-align: center;
+        margin: 0 0 2rem;
     }
+
+    /* 선곡 노트 탭 버튼 */
 
     .note-tabs {
-        width: 100%;
-        gap: .2rem;
-        padding: .3rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .note-tabs button {
-        padding: 1rem .1rem;
-        font-size: clamp(.9rem, 2.45vw, 1.1rem);
-        white-space: nowrap;
-    }
-
-    .note-panel {
-        padding: 1rem;
-        border-radius: 1.2rem;
-    }
-
-    .note-cards {
-        width: 100%;
-        height: 35rem;
-        gap: .8rem;
         display: flex;
+        width: 100%;
+        max-width: 44rem;
+        margin: 0 auto 2rem;
+        padding: .4rem;
+        gap: .2rem;
         overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x proximity;
-        overscroll-behavior-x: contain;
         scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
     }
 
-    .note-cards::-webkit-scrollbar {
+    .note-tabs::-webkit-scrollbar {
         display: none;
     }
 
-    .note-card {
-        flex: 0 0 8.5rem;
-        min-width: 8.5rem;
+    .note-tabs li {
+        flex: 1 0 auto;
+        min-width: 0;
+    }
+
+    .note-tabs button {
+        width: 100%;
+        min-height: 4rem;
+        padding: 1rem .8rem;
+        font-size: clamp(.88rem, 2.5vw, 1.1rem);
+        white-space: nowrap;
+    }
+
+    /* 선곡 노트 검정색 컨테이너 */
+
+    #notes .note-panel {
+        width: 100%;
+        max-width: 44rem;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        margin: 0 auto;
         padding: 1.4rem;
-        scroll-snap-align: center;
-        transition: background-color .3s, border-color .3s;
+        overflow: visible;
     }
 
-    .note-card.is-active {
-        flex: 0 0 min(74vw, 28rem);
-        min-width: min(74vw, 28rem);
+    /* 카드 4개 세로 배치 */
+
+    #notes .note-cards {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        overflow: visible;
     }
 
-    .note-compact {
-        left: 1rem;
-        bottom: 1.2rem;
-        white-space: normal;
+    /* 비활성 카드 */
+
+    #notes .note-card {
+        display: block;
+        position: relative;
+        flex: none;
+        width: 100%;
+        max-width: none;
+        min-width: 0;
+        height: 8.2rem;
+        min-height: 8.2rem;
+        max-height: none;
+        margin: 0 0 1.2rem;
+        padding: 1.6rem 1.8rem;
+        overflow: hidden;
+
+        transition:
+            height .5s cubic-bezier(.22, 1, .36, 1),
+            border-color .3s,
+            box-shadow .3s;
     }
 
-    .note-compact h3 {
-        font-size: 1.35rem;
-        line-height: 1.2;
-        overflow-wrap: anywhere;
+    #notes .note-card:last-child {
+        margin-bottom: 0;
     }
 
-    .note-vinyl {
+    /* 선택된 카드 380px */
+
+    #notes .note-card.is-active {
+        height: 38rem;
+        min-height: 38rem;
+        max-height: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* 비활성 카드 제목 */
+
+    #notes .note-card .note-compact {
+        left: 1.8rem;
+        bottom: 1.5rem;
+    }
+
+    /* 카드 상세 내용 */
+
+    #notes .note-card .note-detail {
         width: 100%;
         height: 100%;
-        top: 0;
-        left: 0;
+    }
+
+    /* LP 및 앨범 이미지 */
+
+    #notes .note-vinyl,
+    #notes .note-album {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        object-position: center;
     }
 
     .note-pill {
-        padding: .5rem .8rem;
-        font-size: .85rem;
+        font-size: 1rem;
+        padding: .6rem 1.1rem;
     }
 
     .note-detail-bottom h3 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        line-height: 1.25;
     }
 
     .note-detail-bottom p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        line-height: 1.65;
+        margin-top: 1rem;
+        word-break: keep-all;
     }
+
+    /* 리스닝 포인트 */
 
     .listening-item {
-        padding: .8rem 0;
+        padding: 1.1rem 0;
     }
 
-    .listening-item strong {
-        font-size: 1rem;
+    .listening-item strong,
+    .listening-item p {
+        font-size: 1.15rem;
     }
 
     .listening-item p {
-        font-size: 1.05rem;
+        line-height: 1.5;
     }
+
+    /* 평점 */
 
     .rating-stars {
-        font-size: 2.3rem;
-        letter-spacing: 0;
+        font-size: 2.7rem;
     }
 
-    .rating-review {
-        font-size: 1.1rem;
-        margin-top: 1.3rem;
-    }
-
-    .rating-score {
-        font-size: 1.25rem;
-    }
-
-    /* MOOD PLAYLIST */
+    /* 무드별 Playlist */
 
     #photos {
-        margin-top: 4.4rem;
+        margin-top: 4.8rem;
     }
 
     .photos {
@@ -556,28 +634,14 @@
         padding: 1.1rem;
     }
 
-    .photos li::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-            to bottom,
-            transparent 18%,
-            rgba(0, 0, 0, .7) 100%
-        );
-        z-index: -1;
-        pointer-events: none;
-    }
-
     .photos li h2 {
-        font-size: 1.7rem;
-        line-height: 1.1;
+        font-size: clamp(1.45rem, 4.2vw, 1.65rem);
         word-break: keep-all;
     }
 
     .photos .li_title {
-        top: 1.1rem;
         font-size: .85rem;
+        top: 1.1rem;
     }
 
     .photos li p {
@@ -586,73 +650,53 @@
     }
 
     .photos li p:last-child {
-        font-size: .8rem;
+        font-size: .78rem;
     }
 
-    /* FOOTER */
+    /* 모바일 푸터 및 TOP */
 
     footer {
         flex-direction: column;
-        align-items: center;
-        gap: .6rem;
-        padding: 2.4rem 1.5rem;
+        gap: .5rem;
+        padding: 2.3rem 1rem;
         margin-top: 5rem;
         font-size: 1rem;
-        text-align: center;
     }
-
-    /* TOP */
 
     .top {
         width: 5.4rem;
         height: 5.4rem;
-        bottom: 1.6rem;
-        right: 1.6rem;
+        right: 1.5rem;
+        bottom: 1.5rem;
         font-size: 1.4rem;
     }
 }
 
-/* 360px 이하 */
+/* 사용자 모션 설정 */
 
-@media (max-width: 360px) {
-    header .inner {
-        gap: .6rem;
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
     }
 
-    nav ul {
-        gap: .5rem;
-    }
-
-    nav a {
-        font-size: .88rem;
-    }
-
-    .hero-txt {
-        max-width: 69%;
-    }
-
-    .hero .title {
-        font-size: 2.65rem;
-    }
-
-    .record {
-        right: -37rem;
-    }
-
+    .post,
+    .post .thumb,
+    .note-card,
+    .note-detail,
+    .hero-scene,
+    .record,
     .tonearm {
-        right: 1.4rem;
+        animation: none !important;
+        transition: none !important;
     }
+}
 
-    .note-card.is-active {
-        flex-basis: 75vw;
-        min-width: 75vw;
-    }
+/* Hover 가능한 기기에서만 그림자 표시 */
 
-    .photos {
-        grid-template-rows: 15rem 17rem 17rem;
-    }
+@media (hover: hover) {
 
-    .photos li h2 {
-        font-size: 1.5rem;
+    .post:hover .thumb {
+        box-shadow: 0 6px 18px rgba(0,0,0,.10);
     }
 }
