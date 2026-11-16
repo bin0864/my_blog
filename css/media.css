@@ -211,7 +211,7 @@
     .hero-txt {
         width: 22rem;
         max-width: 66%;
-
+        margin-top: 3rem;
     }
 
     .side {
@@ -259,7 +259,7 @@
         align-items: center;
         text-align: center;
         gap: 1.2rem;
-        margin-top: -8rem;
+        margin-top: -10rem;
         margin-bottom: 3rem;
         padding: 2rem 1.5rem;
     }
