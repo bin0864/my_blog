@@ -189,7 +189,7 @@ header nav li {
 header nav a {
     display: block;
     padding: 1.8rem 1rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-align: center;
     white-space: normal;
     color: var(--butter);
@@ -235,8 +235,9 @@ body.m-nav-open .top {
 }
 
 .hero {
+    --record-size: clamp(34rem, 70vw, 100rem);
     --accent: var(--cherry);
-    height: 52rem;
+    height: 60rem;
     position: relative;
     isolation: isolate;
     overflow: hidden;
@@ -295,10 +296,16 @@ body.m-nav-open .top {
 .record {
     position: absolute;
     z-index: 2;
-    width: 100rem;
-    height: 100rem;
-    right: -32rem;
-    top: -20rem;
+
+    width: var(--record-size);
+    height: var(--record-size);
+
+    left: 94%;
+    top: 50%;
+    right: auto;
+
+    translate: -50% -50%;
+
     animation: recordSpin 1.8s linear infinite;
     animation-play-state: paused;
 }
@@ -340,13 +347,18 @@ body.m-nav-open .top {
 .tonearm {
     position: absolute;
     z-index: 3;
-    width: 40rem;
-    height: 40rem;
-    right: 43rem;
-    top: 4rem;
+
+    width: calc(var(--record-size) * .4);
+    height: calc(var(--record-size) * .4);
+
+    left: calc(94% - var(--record-size) * .66);
+    top: calc(50% - var(--record-size) * .25);
+    right: auto;
+
     background: url("../img/2.png") no-repeat center/contain;
     transform-origin: 23% 25%;
     pointer-events: none;
+
     animation: tonearmMove 2s ease-in-out forwards;
 }
 
@@ -863,9 +875,39 @@ section > h2 {
     font-size: 1.08rem;
 }
 
+
 .note-listening.is-active {
-    background: #743330;
+    background: linear-gradient(
+        160deg,
+        #4A1F1E 0%,
+        #743330 55%,
+        #562321 100%
+    );
 }
+
+.listening-wave-video {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    height: 13rem;
+    object-fit: contain;
+    opacity: .55;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.note-listening .note-pill {
+    position: relative;
+    z-index: 2;
+}
+
+.note-listening .listening-content {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+}
+
 
 .note-headphone {
     position: absolute;

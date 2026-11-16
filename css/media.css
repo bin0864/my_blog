@@ -8,7 +8,7 @@
     }
 
     .hero {
-        height: 48rem;
+        height: 60rem;
     }
 
     .hero-txt {
@@ -21,20 +21,6 @@
 
     .hero-speed, .hero-caption {
         display: none;
-    }
-
-    .record {
-        width: 83rem;
-        height: 83rem;
-        right: -35rem;
-        top: -14rem;
-    }
-
-    .tonearm {
-        width: 34rem;
-        height: 34rem;
-        right: 27rem;
-        top: 7rem;
     }
 
     .profile {
@@ -219,7 +205,7 @@
     }
 
     .hero {
-        height: 45rem;
+        height: 60rem;
     }
 
     .hero-txt {
@@ -266,20 +252,6 @@
         width: 3rem;
         height: 3rem;
         font-size: 1.5rem;
-    }
-
-    .record {
-        width: 56rem;
-        height: 56rem;
-        right: -35rem;
-        top: -4rem;
-    }
-
-    .tonearm {
-        width: 20rem;
-        height: 20rem;
-        right: 2rem;
-        top: 8.5rem;
     }
 
     .profile {
@@ -440,10 +412,16 @@
         font-size: 2rem;
     }
 
+
+    .listening-wave-video {
+        top: 5rem;
+        height: 10rem;
+    }
+
     .note-detail-bottom p,
     .listening-item p {
         font-size: 1.1rem;
-    }
+    }    
 
     .rating-stars {
         font-size: 2.5rem;
