@@ -20,8 +20,6 @@ let slideTimer = null;
 let videoStopTimer = null;
 let heroReady = false;
 
-/* HERO 배경 전환 */
-
 function showScene(index) {
     currentScene = (index + scenes.length) % scenes.length;
 
@@ -102,8 +100,6 @@ nextBtn.addEventListener('click', () => {
     resetHeroTimer();
 });
 
-/* TOP 버튼 */
-
 function updateScrollHeader() {
     body.classList.toggle('scroll', window.scrollY > 80);
 }
@@ -123,7 +119,34 @@ topBtn.addEventListener('click', event => {
     });
 });
 
-/* 선곡 노트 탭 */
+const menuBtn = document.querySelector('.mob-nav-btn');
+const navLinks = document.querySelectorAll('#main-nav a');
+
+function closeMenu() {
+    body.classList.remove('m-nav-open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', '메뉴 열기');
+}
+
+menuBtn.addEventListener('click', () => {
+    const isOpen = body.classList.toggle('m-nav-open');
+
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    menuBtn.setAttribute(
+        'aria-label',
+        isOpen ? '메뉴 닫기' : '메뉴 열기'
+    );
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+        closeMenu();
+    }
+});
 
 const noteTabs = [...document.querySelectorAll('.note-tabs button')];
 const noteCards = [...document.querySelectorAll('.note-card')];
@@ -154,8 +177,6 @@ function selectNote(index) {
     });
 }
 
-/* 탭 클릭 및 키보드 이동 */
-
 noteTabs.forEach((tab, i) => {
     tab.addEventListener('click', () => {
         selectNote(i);
@@ -177,20 +198,15 @@ noteTabs.forEach((tab, i) => {
         }
 
         event.preventDefault();
-
         selectNote(next);
         noteTabs[next].focus();
     });
 });
-
-/* 데스크톱에서는 카드 직접 클릭 가능 */
 
 noteCards.forEach((card, i) => {
     card.addEventListener('click', () => {
         selectNote(i);
     });
 });
-
-/* 초기 상태 */
 
 selectNote(0);

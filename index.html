@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>33⅓ | TODAY PLAYLIST</title>
+    <meta name="description" content="DJ 영빈이 좋아하는 K-POP, J-POP, POP 플레이리스트와 곡 감상을 기록하는 음악 블로그입니다.">
+    <meta name="keywords" content="33⅓, 오늘의 선곡, 플레이리스트, 음악 블로그, K-POP, J-POP, POP, 선곡 노트">
+    <meta name="author" content="DJ 영빈">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:title" content="33⅓ | TODAY PLAYLIST">
+    <meta property="og:description" content="오늘은 이런 음악 어떤가요? DJ 영빈의 음악 취향 아카이브.">
+    <meta property="og:image" content="./img/og-cover.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
@@ -12,11 +21,15 @@
     <header id="top">
         <div class="inner">
             <h1 class="logo">33⅓</h1>
-            <nav aria-label="메인 메뉴">
+            <button type="button" class="mob-nav-btn"
+                aria-label="메뉴 열기" aria-expanded="false" aria-controls="main-nav">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="main-nav" aria-label="메인 메뉴">
                 <ul>
                     <li><a href="#posts">오늘의 선곡</a></li>
-                    <li><a href="#photos">무드별 Playlist</a></li>
                     <li><a href="#notes">선곡 노트</a></li>
+                    <li><a href="#photos">무드별 Playlist</a></li>
                 </ul>
             </nav>
         </div>
@@ -54,8 +67,6 @@
                     <button class="hero-arrow next" type="button" aria-label="다음 배경" disabled>&gt;</button>
                 </div>
             </div>
-            <p class="hero-speed">33⅓ RPM &nbsp; STEREO</p>
-            <p class="hero-caption">PLAY / PAUSE YOUR DAY</p>
         </div>
     </section>
 
@@ -109,7 +120,6 @@
             </article>
         </section>
 
-        <!-- Figma의 선곡 노트: 선택한 테마 카드 하나만 펼쳐집니다. -->
         <section id="notes" class="notes">
             <h2>선곡 노트</h2>
             <ul class="note-tabs" role="tablist" aria-label="선곡 노트 카테고리">
@@ -129,7 +139,7 @@
                             <div class="note-detail-bottom">
                                 <p class="note-date">2026.11.12 / THU · 밤의 기록</p>
                                 <h3>선곡 노트</h3>
-                                <p>오늘 하루 Playlist 끝에<br>소소한 음악 이야기를 기록해요.</p>
+                                <p>오늘 하루 Playlist 끝에<br>소소한 음악 이야기를 기록해요</p>
                             </div>
                         </div>
                     </article>
@@ -141,7 +151,7 @@
                             <span class="note-pill">TODAY'S SONG</span>
                             <div class="note-detail-bottom">
                                 <h3>ROSÉ - toxic till the end</h3>
-                                <p>2024년 발매된 정규 앨범 rosie 수록곡.<br>끝난 관계에 남은 감정을 솔직하게 표현한 노래.</p>
+                                <p>2024년 발매된 정규 앨범 rosie 수록곡,<br>끝난 관계에 남은 감정을 솔직하게 표현한 곡입니다</p>
                             </div>
                         </div>
                     </article>
@@ -150,7 +160,6 @@
                         <div class="note-compact"><span>03</span><h3>리스닝 포인트</h3></div>
                         <div class="note-detail">
                             <span class="note-pill">LISTENING POINT</span>
-                            <span class="note-headphone" aria-hidden="true">🎧</span>
                             <div class="listening-content">
                                 <h3 class="sr-only">ROSÉ - toxic till the end의 리스닝 포인트</h3>
                                 <div class="listening-item">

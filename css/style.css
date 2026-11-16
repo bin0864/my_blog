@@ -3,13 +3,12 @@
     --butter: #FFF8E7;
     --ivory: #FFFCF7;
     --gray: #E4E4DE;
-    --ink: #111111;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
@@ -18,11 +17,10 @@ html {
 }
 
 body {
-    min-width: 0;
-    overflow-x: clip;
+    font-family: "Noto Sans KR", sans-serif;
     background: var(--gray);
     color: #333;
-    font-family: "Noto Sans KR", sans-serif;
+    min-width: 0;
 }
 
 ul {
@@ -30,8 +28,8 @@ ul {
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
 }
 
 button {
@@ -44,31 +42,33 @@ h1, h2, h3 {
 }
 
 .inner, main {
-    width: min(90%, 120rem);
-    margin-inline: auto;
+    width: 90%;
+    max-width: 120rem;
+    margin: 0 auto;
 }
 
 #posts, #notes, #photos, #profile {
     scroll-margin-top: 9rem;
 }
 
-/* HEADER */
-
 header {
     position: fixed;
-    inset: 0 0 auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.4rem 0;
     z-index: 30;
     color: var(--butter);
-    padding: 2.4rem 0;
     transition: background .3s, padding .3s;
 }
 
 body.scroll header {
-    background: rgba(0, 0, 0, .93);
+    background: rgba(0, 0, 0, .94);
     padding: 1.5rem 0;
 }
 
 header .inner {
+    position: relative;
     max-width: 132rem;
     display: flex;
     align-items: center;
@@ -77,36 +77,171 @@ header .inner {
 }
 
 .logo {
+    position: relative;
+    z-index: 5;
     flex-shrink: 0;
-    color: var(--butter);
     font-size: 2.6rem;
 }
 
-nav ul {
+.mob-nav-btn {
     display: flex;
-    gap: 2.8rem;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    position: fixed;
+    z-index: 5;
+    top: 2.4rem;
+    right: 4rem;
+    width: 4.4rem;
+    height: 4.4rem;
+    margin-left: 0;
+    border: 1px solid #675553;
+    border-radius: .8rem;
+    background: #171313;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-nav a {
-    font-size: 1.2rem;
-    white-space: nowrap;
+body.scroll .mob-nav-btn {
+    top: 1.5rem;
 }
 
-nav a:hover {
-    color: #DBB9B3;
+.mob-nav-btn span {
+    display: block;
+    width: 2.1rem;
+    height: .2rem;
+    background: var(--butter);
+    transition: transform .25s, opacity .25s;
 }
 
-/* HERO */
+.mob-nav-btn:focus-visible {
+    outline: 2px solid var(--butter);
+    outline-offset: 3px;
+}
+
+header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 4;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    height: 36rem;
+    padding: 9rem 2rem 3rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, .95) 0%,
+        rgba(0, 0, 0, .82) 58%,
+        rgba(0, 0, 0, .3) 86%,
+        transparent 100%
+    );
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-1rem);
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s;
+}
+
+header nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 55%,
+        transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0%,
+        black 55%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+header nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: min(100%, 55rem);
+    gap: 0;
+    position: relative;
+    z-index: 1;
+}
+
+header nav li {
+    border-bottom: 1px solid rgba(255, 248, 231, .25);
+}
+
+header nav a {
+    display: block;
+    padding: 1.8rem 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+    white-space: normal;
+    color: var(--butter);
+    transition: color .3s, background .3s;
+}
+
+header nav a:hover {
+    color: #E8B5AD;
+    background: rgba(146, 46, 43, .15);
+}
+
+body.m-nav-open header {
+    background: transparent;
+}
+
+body.m-nav-open header nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+body.m-nav-open .mob-nav-btn {
+    background: transparent;
+    border-color: transparent;
+}
+
+body.m-nav-open .mob-nav-btn span:nth-child(1) {
+    transform: translateY(.7rem) rotate(45deg);
+}
+
+body.m-nav-open .mob-nav-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+body.m-nav-open .mob-nav-btn span:nth-child(3) {
+    transform: translateY(-.7rem) rotate(-45deg);
+}
+
+body.m-nav-open .top {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .hero {
     --accent: var(--cherry);
+    height: 52rem;
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    height: 52rem;
-    color: var(--butter);
     background: #000;
+    color: var(--butter);
 }
 
 .hero[data-scene="2"] {
@@ -120,9 +255,9 @@ nav a:hover {
 .hero-scene {
     position: absolute;
     inset: 0;
-    z-index: 0;
     background: #000;
     opacity: 0;
+    z-index: 0;
     transition: opacity 1.2s ease;
     pointer-events: none;
 }
@@ -139,7 +274,7 @@ nav a:hover {
     z-index: 1;
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, .80),
+        rgba(0, 0, 0, .8),
         rgba(0, 0, 0, .25) 63%,
         rgba(0, 0, 0, .08)
     );
@@ -150,14 +285,12 @@ nav a:hover {
 }
 
 .background-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    position: absolute;
-    inset: 0;
 }
-
-/* RECORD */
 
 .record {
     position: absolute;
@@ -166,7 +299,8 @@ nav a:hover {
     height: 100rem;
     right: -32rem;
     top: -20rem;
-    animation: recordSpin 1.8s linear infinite paused;
+    animation: recordSpin 1.8s linear infinite;
+    animation-play-state: paused;
 }
 
 .hero.is-playing .record {
@@ -190,17 +324,15 @@ nav a:hover {
     }
 }
 
-/* TONEARM */
-
 .hero::after {
     content: "";
     position: absolute;
-    z-index: 2;
     inset: 0;
+    z-index: 2;
     pointer-events: none;
     background: linear-gradient(
         90deg,
-        rgba(0, 0, 0, .40),
+        rgba(0, 0, 0, .4),
         transparent 65%
     );
 }
@@ -228,12 +360,10 @@ nav a:hover {
     }
 }
 
-/* HERO TEXT */
-
 .hero .inner {
-    height: 100%;
     position: relative;
     z-index: 4;
+    height: 100%;
     display: flex;
     align-items: center;
     pointer-events: none;
@@ -243,7 +373,6 @@ nav a:hover {
     width: 48rem;
     max-width: 54%;
     margin-top: 3rem;
-    position: relative;
     pointer-events: auto;
 }
 
@@ -251,14 +380,14 @@ nav a:hover {
     border-top: 1px solid #444;
     padding-top: 1.5rem;
     margin-bottom: 2rem;
-    font-size: 1rem;
     color: #A6A6A6;
+    font-size: 1rem;
     letter-spacing: .1rem;
 }
 
 .sub {
-    font-size: 1.1rem;
     color: #BDB6AE;
+    font-size: 1.1rem;
     letter-spacing: .5rem;
     margin-bottom: .5rem;
 }
@@ -266,7 +395,6 @@ nav a:hover {
 .hero .title {
     font-size: 5rem;
     line-height: 1.08;
-    letter-spacing: 0;
 }
 
 .hero-desc {
@@ -277,14 +405,13 @@ nav a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin: 3rem 0 0;
+    margin-top: 3rem;
     padding: 1.2rem 3rem;
     background: var(--accent);
-    color: var(--butter);
     border-radius: 3rem;
     font-size: 1.4rem;
     font-weight: 700;
-    transition: background .35s, transform .25s;
+    transition: transform .25s, background .3s;
 }
 
 .hero .btn:hover {
@@ -295,16 +422,16 @@ nav a:hover {
     width: 40rem;
     max-width: 100%;
     height: .4rem;
-    background: #444;
+    margin-top: 4rem;
     position: relative;
     overflow: hidden;
-    margin-top: 4rem;
+    background: #444;
 }
 
 .hero-meter-bar {
     position: absolute;
-    top: 0;
     left: 0;
+    top: 0;
     width: 34%;
     height: 100%;
     background: var(--accent);
@@ -357,29 +484,27 @@ nav a:hover {
     font-size: 1.1rem;
 }
 
-.hero-speed {
+.hero-speed, .hero-caption {
     position: absolute;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.hero-speed {
     top: 32%;
     left: 52%;
     color: #D2C8C1;
-    font-size: 1rem;
-    white-space: nowrap;
 }
 
 .hero-caption {
-    position: absolute;
     bottom: 13%;
     left: 51%;
-    color: var(--butter);
-    font-size: 1rem;
-    white-space: nowrap;
 }
-
-/* PROFILE */
 
 .profile, #posts, #photos {
     max-width: 100rem;
-    margin-inline: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .profile {
@@ -389,20 +514,20 @@ nav a:hover {
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
-    padding: 3rem;
     margin-top: -3.2rem;
     margin-bottom: 4.5rem;
+    padding: 3rem;
     border-radius: 1.4rem;
     background: var(--cherry);
     color: var(--butter);
 }
 
 .avatar {
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
     width: 7rem;
     height: 7rem;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
     border-radius: 50%;
     background: #000;
     font-size: 3.4rem;
@@ -425,20 +550,16 @@ nav a:hover {
 
 .tags {
     display: flex;
-    gap: .8rem;
     flex-wrap: wrap;
+    gap: .8rem;
 }
 
 .tags li {
     background: #000;
-    color: var(--butter);
-    padding: .6rem 1rem;
     border-radius: 2rem;
+    padding: .6rem 1rem;
     font-size: 1rem;
-    font-weight: 700;
 }
-
-/* TODAY PLAYLIST */
 
 section > h2 {
     font-size: 3rem;
@@ -452,13 +573,13 @@ section > h2 {
 
 .post {
     display: flex;
-    gap: 2rem;
     align-items: center;
+    gap: 2rem;
     padding: 2.2rem;
     margin-bottom: 2rem;
-    border-radius: 1.6rem;
     background: var(--ivory);
-    transition: padding .35s ease, gap .35s ease, border-radius .35s ease;
+    border-radius: 1.6rem;
+    transition: gap .3s, padding .3s;
 }
 
 .post:nth-of-type(2) {
@@ -466,15 +587,13 @@ section > h2 {
 }
 
 .post .thumb {
-    flex: 0 0 clamp(15rem, 19vw, 20rem);
-    width: clamp(15rem, 19vw, 20rem);
-    height: auto;
-    aspect-ratio: 1 / 1;
+    position: relative;
+    flex: 0 0 20rem;
+    width: 20rem;
+    height: 20rem;
     overflow: hidden;
     border-radius: 1.2rem;
-    position: relative;
     background: var(--ivory);
-    transition: flex-basis .35s ease, width .35s ease, border-radius .35s ease;
 }
 
 .post .thumb .bg {
@@ -483,7 +602,6 @@ section > h2 {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform .3s ease;
 }
 
 .post:nth-of-type(1) .thumb .bg {
@@ -497,13 +615,6 @@ section > h2 {
 .post:nth-of-type(3) .thumb .bg {
     background-image: url("../img/post-img-3.png");
 }
-
-.post:hover .thumb .bg {
-    transform: none;
-}
-
-
-/* 버튼 겹침 방지 */
 
 .post .info {
     display: grid;
@@ -520,28 +631,27 @@ section > h2 {
 
 .info h3 {
     font-size: 2.8rem;
+    line-height: 1.17;
     color: #000;
     margin: .4rem 0;
-    line-height: 1.17;
     word-break: keep-all;
 }
 
 .cate, .track {
-    font-size: 1.25rem;
     color: var(--cherry);
+    font-size: 1.25rem;
     font-weight: 700;
     margin: .6rem 0;
 }
 
 .list {
     font-size: 1.45rem;
-    color: #685954;
     line-height: 1.58;
+    color: #685954;
     overflow-wrap: anywhere;
 }
 
 .post .more {
-    position: static;
     grid-column: 2;
     grid-row: 1 / span 7;
     align-self: center;
@@ -563,8 +673,6 @@ section > h2 {
     background: #111;
 }
 
-/* SELECTION NOTES */
-
 .notes {
     max-width: 110rem;
     margin: 8rem auto 7rem;
@@ -572,10 +680,8 @@ section > h2 {
 
 .notes > h2 {
     text-align: center;
-    margin: 0 0 1.8rem;
+    margin-bottom: 1.8rem;
 }
-
-/* NOTE TABS */
 
 .note-tabs {
     display: flex;
@@ -600,13 +706,13 @@ section > h2 {
     border-radius: 3rem;
     background: transparent;
     color: var(--butter);
-    font: 700 1.25rem "Noto Sans KR", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
     cursor: pointer;
     transition: background .25s;
 }
 
-.note-tabs button.is-active,
-.note-tabs button:hover {
+.note-tabs button.is-active, .note-tabs button:hover {
     background: var(--cherry);
 }
 
@@ -615,29 +721,27 @@ section > h2 {
     outline-offset: -3px;
 }
 
-/* NOTE PANEL */
-
 .note-panel {
     background: #050505;
-    padding: 2rem;
     border-radius: 1.4rem;
+    padding: 2rem;
 }
 
 .note-cards {
     display: flex;
+    gap: 1.2rem;
     width: 100%;
     height: 37.5rem;
-    gap: 1.2rem;
 }
 
 .note-card {
+    position: relative;
     flex: 1;
     min-width: 0;
-    position: relative;
+    padding: 1.6rem;
     overflow: hidden;
     border: 1px solid #3B2423;
     border-radius: 1.2rem;
-    padding: 1.6rem;
     background: linear-gradient(145deg, #170707, #280F10);
     color: var(--butter);
     cursor: pointer;
@@ -648,18 +752,14 @@ section > h2 {
     flex: 1.7;
     cursor: default;
     border-color: #776B68;
-    box-shadow: 0 0 0 2px rgba(255,248,231,.10);
+    box-shadow: 0 0 0 2px #fff2;
 }
 
 .note-compact {
     position: absolute;
-    z-index: 3;
-    left: 1.6rem;
     bottom: 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
-    transition: opacity .2s;
+    left: 1.6rem;
+    z-index: 3;
 }
 
 .note-compact span {
@@ -669,7 +769,6 @@ section > h2 {
 
 .note-compact h3 {
     font-size: 1.7rem;
-    line-height: 1.1;
 }
 
 .note-card.is-active .note-compact {
@@ -685,20 +784,19 @@ section > h2 {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity .22s ease, visibility .22s;
+    transition: opacity .22s, visibility .22s;
 }
 
 .note-card.is-active .note-detail {
     opacity: 1;
     visibility: visible;
-    transition-delay: .1s;
 }
 
 .note-pill {
-    align-self: flex-start;
     display: inline-block;
-    border-radius: 3rem;
+    align-self: flex-start;
     padding: .55rem 1rem;
+    border-radius: 3rem;
     background: var(--ivory);
     color: #1A1111;
     font-size: .95rem;
@@ -708,18 +806,17 @@ section > h2 {
 
 .note-detail-bottom {
     margin-top: auto;
-    text-shadow: 0 1px 4px rgba(0,0,0,.6);
+    text-shadow: 0 1px 4px #0009;
 }
 
 .note-detail-bottom h3 {
     font-size: 2.15rem;
-    line-height: 1.12;
 }
 
 .note-detail-bottom p {
-    margin-top: .7rem;
     font-size: 1.2rem;
     line-height: 1.55;
+    margin-top: .7rem;
 }
 
 .note-date {
@@ -727,25 +824,19 @@ section > h2 {
     color: #EDCDC7;
 }
 
-/* NOTE 01 - TODAY */
-
-.note-today.is-active {
-    background: #090909;
-}
-
-.note-vinyl {
+.note-vinyl, .note-album {
     position: absolute;
-    z-index: 0;
     inset: 0;
+    z-index: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     opacity: 0;
-    transition: opacity .2s;
 }
 
-.note-today.is-active .note-vinyl {
+.note-today.is-active .note-vinyl,
+.note-song.is-active .note-album {
     opacity: 1;
 }
 
@@ -758,27 +849,10 @@ section > h2 {
     background: linear-gradient(
         180deg,
         transparent 15%,
-        rgba(0,0,0,.08) 42%,
-        rgba(0,0,0,.86) 100%
+        #0001 42%,
+        #000e 100%
     );
     pointer-events: none;
-}
-
-/* NOTE 02 - SONG */
-
-.note-album {
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity .2s;
-}
-
-.note-song.is-active .note-album {
-    opacity: 1;
 }
 
 .note-song .note-detail-bottom h3 {
@@ -788,8 +862,6 @@ section > h2 {
 .note-song .note-detail-bottom p {
     font-size: 1.08rem;
 }
-
-/* NOTE 03 - LISTENING POINT */
 
 .note-listening.is-active {
     background: #743330;
@@ -807,8 +879,8 @@ section > h2 {
 }
 
 .listening-item {
+    border-top: 1px solid #fff4;
     padding: 1.1rem 0;
-    border-top: 1px solid rgba(255,248,231,.24);
 }
 
 .listening-item strong {
@@ -817,24 +889,17 @@ section > h2 {
 }
 
 .listening-item p {
-    margin-top: .4rem;
     font-size: 1.15rem;
     line-height: 1.45;
+    margin-top: .4rem;
 }
-
-/* NOTE 04 - RATING */
 
 .note-rating.is-active {
     background-color: #080808;
     background-image:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.08),
-            rgba(0,0,0,.60)
-        ),
-        url("../img/1-4.png");
+        linear-gradient(#0002, #0009);
     background-position: center;
-    background-size: cover, contain, cover;
+    background-size: cover, contain;
     background-repeat: no-repeat;
 }
 
@@ -862,7 +927,6 @@ section > h2 {
 
 .rating-stars {
     font-size: 2.7rem;
-    letter-spacing: .12rem;
     white-space: nowrap;
     text-shadow: 0 2px 5px #000;
 }
@@ -873,24 +937,19 @@ section > h2 {
 }
 
 .rating-artist {
+    color: #D8C9C3;
     font-size: 1rem;
     margin-top: 1.3rem;
-    color: #D8C9C3;
 }
 
 .sr-only {
     position: absolute;
     width: 1px;
     height: 1px;
-    padding: 0;
-    margin: -1px;
     overflow: hidden;
     clip: rect(0,0,0,0);
     white-space: nowrap;
-    border: 0;
 }
-
-/* MOOD PLAYLIST */
 
 #photos {
     margin-top: 6rem;
@@ -906,11 +965,25 @@ section > h2 {
     gap: 1rem;
 }
 
-.p1 { grid-area: p1; }
-.p2 { grid-area: p2; }
-.p3 { grid-area: p3; }
-.p4 { grid-area: p4; }
-.p5 { grid-area: p5; }
+.p1 {
+    grid-area: p1;
+}
+
+.p2 {
+    grid-area: p2;
+}
+
+.p3 {
+    grid-area: p3;
+}
+
+.p4 {
+    grid-area: p4;
+}
+
+.p5 {
+    grid-area: p5;
+}
 
 .photos li {
     position: relative;
@@ -919,8 +992,8 @@ section > h2 {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1.3rem;
     border-radius: 1rem;
+    padding: 1.3rem;
     background: #000;
     color: var(--butter);
 }
@@ -930,8 +1003,8 @@ section > h2 {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
     filter: grayscale(100%);
     transition: filter .5s;
 }
@@ -967,11 +1040,10 @@ section > h2 {
     z-index: -1;
     background: linear-gradient(
         180deg,
-        rgba(0,0,0,.18),
-        rgba(0,0,0,.05) 35%,
-        rgba(0,0,0,.72)
+        #0003,
+        #0000 35%,
+        #000b
     );
-    pointer-events: none;
 }
 
 .photos .li_title {
@@ -995,8 +1067,6 @@ section > h2 {
     font-size: .8rem;
     margin-top: .5rem;
 }
-
-/* FOOTER & TOP */
 
 footer {
     display: flex;
@@ -1023,4 +1093,14 @@ footer {
     color: var(--gray);
     font-size: 2rem;
     font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(2rem);
+    transition: opacity .3s, transform .3s;
+}
+
+body.scroll .top {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
