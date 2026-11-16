@@ -63,8 +63,8 @@ header {
 }
 
 body.scroll header {
-    background: rgba(0, 0, 0, .94);
-    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.466);
+    padding: 2.5rem 0;
 }
 
 header .inner {
@@ -91,7 +91,7 @@ header .inner {
     gap: .5rem;
     position: fixed;
     z-index: 5;
-    top: 2.4rem;
+    top: 2rem;
     right: 4rem;
     width: 4.4rem;
     height: 4.4rem;
@@ -104,7 +104,7 @@ header .inner {
 }
 
 body.scroll .mob-nav-btn {
-    top: 1.5rem;
+    top: 2rem;
 }
 
 .mob-nav-btn span {
