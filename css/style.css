@@ -63,7 +63,7 @@ header {
 }
 
 body.scroll header {
-    background: rgba(0, 0, 0, 0.466);
+    background: rgba(0, 0, 0, 0.644);
     padding: 2.5rem 0;
 }
 
@@ -526,7 +526,7 @@ body.m-nav-open .top {
     align-items: center;
     gap: 2rem;
     flex-wrap: wrap;
-    margin-top: -3.2rem;
+    margin-top: -5.rem;
     margin-bottom: 4.5rem;
     padding: 3rem;
     border-radius: 1.4rem;
