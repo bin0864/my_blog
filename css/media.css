@@ -225,9 +225,14 @@
         letter-spacing: .22rem;
     }
 
+    
     .hero .title {
+        width: min-content;
+        max-width: 100%;
         font-size: clamp(2.7rem, 7vw, 3.6rem);
         line-height: 1.06;
+        white-space: normal;
+        word-break: keep-all;
     }
 
     .hero-desc {
