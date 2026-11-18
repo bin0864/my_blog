@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/media.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header id="top">
@@ -88,7 +89,7 @@
 
         <section id="posts">
             <h2>오늘의 선곡</h2>
-            <article class="post">
+            <article class="post" data-aos="fade-up">
                 <div class="thumb"><div class="bg"></div></div>
                 <div class="info">
                     <p class="cate">01 / K-POP · DREAMY MOOD</p>
@@ -100,7 +101,7 @@
                     <a href="#notes" class="more">▶ 플레이리스트 듣기</a>
                 </div>
             </article>
-            <article class="post">
+            <article class="post" data-aos="fade-up" data-aos-delay="100">
                 <div class="thumb"><div class="bg"></div></div>
                 <div class="info">
                     <p class="cate">02 / J-POP · LOVE &amp; NOSTALGIA</p>
@@ -112,7 +113,7 @@
                     <a href="#notes" class="more">▶ 플레이리스트 듣기</a>
                 </div>
             </article>
-            <article class="post">
+            <article class="post" data-aos="fade-up" data-aos-delay="200">
                 <div class="thumb"><div class="bg"></div></div>
                 <div class="info">
                     <p class="cate">03 / POP · SOFT GROOVE</p>
@@ -218,29 +219,29 @@
         <section id="photos">
             <h2>무드별 Playlist</h2>
             <ul class="photos">
-                <li class="p1">
+                <li class="p1" data-aos="fade-zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic" data-aos-offset="70" 
                     <p class="li_title">01 / AFTER DARK · CITY WALK</p>
                     <h2>도시는 아직 잠들지 않아</h2>
                     <p>잠들지 않는 거리와 이어폰 속 작은 설렘</p>
                     <p>NIGHT WALK / CURATED MIX</p>
                 </li>
-                <li class="p2">
-                    <p class="li_title">02 / SLOW MOTION · TOKYO</p>
+                <li class="p2" data-aos="fade-zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic" data-aos-offset="70" data-aos-delay="200">
+                    <p class="li_title"></p>02 / SLOW MOTION · TOKYO</p>
                     <h2>네온 아래, 조금 느리게</h2>
                     <p>익숙한 골목도 영화의 한 장면처럼</p>
                 </li>
-                <li class="p3">
+                <li class="p3" data-aos="fade-zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic" data-aos-offset="70" data-aos-delay="400">
                     <p class="li_title">03 / 2AM · SOFT FOCUS</p>
                     <h2>새벽 두 시의 온도</h2>
                     <p>조용해진 시간, 마음만은 선명하게</p>
                     <p>AFTER HOURS / CURATED MIX</p>
                 </li>
-                <li class="p4">
+                <li class="p4" data-aos="fade-zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic" data-aos-offset="70" data-aos-delay="200">
                     <p class="li_title">04 / RETRO · NEW JACK SWING</p>
                     <h2>뉴잭스윙의 밤</h2>
                     <p>리듬을 타고 걷고 싶은 밤</p>
                 </li>
-                <li class="p5">
+                <li class="p5" data-aos="fade-zoom-in" data-aos-duration="1100" data-aos-easing="ease-out-cubic" data-aos-offset="70" data-aos-delay="300">
                     <p class="li_title">05 / OLD FILM · VINTAGE</p>
                     <h2>진정한 빈티지의 완성</h2>
                     <p>오래된 레코드에서 꺼낸 감성</p>
@@ -255,6 +256,7 @@
         <p>오늘의 하루 음악으로 기록하는 공간</p>
     </footer>
     <a href="#top" class="top" aria-label="맨 위로">TOP</a>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/app.js"></script>
 </body>
 </html>

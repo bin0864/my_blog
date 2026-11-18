@@ -210,3 +210,11 @@ noteCards.forEach((card, i) => {
 });
 
 selectNote(0);
+
+AOS.init({
+    duration: 850,
+    easing: "ease-out-cubic",
+    offset: 60,
+    once: false,
+    mirror: true
+});

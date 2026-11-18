@@ -1146,3 +1146,11 @@ body.scroll .top {
     pointer-events: auto;
     transform: translateY(0);
 }
+
+.photos[data-aos="fade-up"][data-aos="fade-up"] {
+    transform: translate3d(0, 16px, 0);
+}
+
+.photos[data-aos="fade-up"][data-aos="fade-up"].aos-animate {
+    transform: translate3d(0, 0, 0);
+}
